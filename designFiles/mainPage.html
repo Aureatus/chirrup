@@ -16,22 +16,25 @@
     "
   >
     <div
+      id="container"
       style="
-        height: 100%;
+        height: fit-content;
         width: 100%;
         display: grid;
         grid-template: 1fr / 2fr 4fr 3fr;
+        align-items: start;
       "
     >
-      <nav></nav>
+      <nav style="position: sticky; height: 100vh; top: 0"></nav>
       <main
         style="
           box-sizing: border-box;
           border-right: solid 1px rgb(239, 243, 244);
           border-left: solid 1px rgb(239, 243, 244);
+          height: 200vh;
         "
       ></main>
-      <aside></aside>
+      <aside style="position: sticky; height: 100vh; top: 0"></aside>
     </div>
   </body>
 </html>

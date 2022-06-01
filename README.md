@@ -24,3 +24,6 @@ This is done for the final assignment of the javascript section of the full stac
 3. run `npm run build`
 5. run `serve -s build`
 6. The site will now be hosted at localhost:3000
+
+## Style guide
+Chirrup is written using the airbnb style guide, enforced using eslint.

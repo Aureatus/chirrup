@@ -341,7 +341,572 @@
           height: 200vh;
         "
       ></main>
-      <aside style="position: sticky; height: 100vh; top: 0"></aside>
+      <aside
+        style="
+          position: sticky;
+          height: 99vh;
+          top: 0;
+          margin-left: 30px;
+          padding-top: 5px;
+          padding-right: 15%;
+          display: flex;
+          flex-direction: column;
+          row-gap: 15px;
+        "
+      >
+        <div
+          id="search-bar"
+          style="
+            display: flex;
+            flex-direction: row;
+            column-gap: 15px;
+            background-color: rgb(239, 243, 244);
+            border-radius: 9999px;
+            padding: 12px 20px;
+          "
+        >
+          <svg viewBox="0 0 24 24" height="1.25em">
+            <path
+              d="M 21.53 20.47 l -3.66 -3.66 C 19.195 15.24 20 13.214 20 11 c 0 -4.97 -4.03 -9 -9 -9 s -9 4.03 -9 9 s 4.03 9 9 9 c 2.215 0 4.24 -0.804 5.808 -2.13 l 3.66 3.66 c 0.147 0.146 0.34 0.22 0.53 0.22 s 0.385 -0.073 0.53 -0.22 c 0.295 -0.293 0.295 -0.767 0.002 -1.06 Z M 3.5 11 c 0 -4.135 3.365 -7.5 7.5 -7.5 s 7.5 3.365 7.5 7.5 s -3.365 7.5 -7.5 7.5 s -7.5 -3.365 -7.5 -7.5 Z"
+              fill="rgb(83, 100, 113)
+              "
+            ></path>
+          </svg>
+          <form>
+            <input
+              type="text"
+              name="search-bar-input"
+              placeholder="Search Twitter"
+              style="
+                background-color: rgb(239, 243, 244);
+                border: none;
+                font-family: Libre Franklin;
+              "
+            />
+          </form>
+        </div>
+        <div
+          id="whats-happening"
+          style="
+            font-family: Libre Franklin;
+            padding: 12px 20px;
+            background-color: rgb(239, 243, 244);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+          "
+        >
+          <h2
+            style="
+              font-size: 20px;
+              font-weight: 800;
+              margin: 0;
+              margin-bottom: 10px;
+            "
+          >
+            What's happening
+          </h2>
+          <a
+            id="item-1"
+            style="
+              display: flex;
+              justify-content: space-between;
+              cursor: pointer;
+              padding-top: 10px;
+              padding-bottom: 20px;
+            "
+          >
+            <div
+              id="left-section"
+              style="display: flex; flex-direction: column; row-gap: 5px"
+            >
+              <div
+                id="item-heading"
+                style="
+                  margin: 0;
+                  color: rgb(83, 100, 113);
+                  font-family: Libre Franklin;
+                  font-size: 13px;
+                  display: flex;
+                  flex-direction: row;
+                "
+              >
+                <p style="margin: 0">Test</p>
+                <p style="margin: 0; font-size: 15px; padding: 0px 5px">·</p>
+                <p style="margin: 0">LIVE</p>
+              </div>
+              <h3
+                style="
+                  margin: 0;
+                  font-family: Libre Franklin;
+                  font-size: 15px;
+                  line-height: 20px;
+                "
+              >
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem
+                quos eligendi necessitatibus
+              </h3>
+            </div>
+            <div id="right-section">
+              <img
+                src="data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                style="
+                  height: 70px;
+                  width: 70px;
+                  border-radius: 12px;
+                  border: 1px solid black; ;
+                "
+              />
+            </div>
+          </a>
+          <a
+            id="item-2"
+            style="
+              display: flex;
+              justify-content: space-between;
+              cursor: pointer;
+              padding-bottom: 20px;
+            "
+          >
+            <div
+              id="left-section"
+              style="display: flex; flex-direction: column; row-gap: 5px"
+            >
+              <div
+                id="item-heading"
+                style="
+                  margin: 0;
+                  color: rgb(83, 100, 113);
+                  font-family: Libre Franklin;
+                  font-size: 13px;
+                  display: flex;
+                  flex-direction: row;
+                "
+              >
+                <p style="margin: 0">Test two in item section</p>
+              </div>
+              <h3
+                style="
+                  margin: 0;
+                  font-family: Libre Franklin;
+                  font-size: 15px;
+                  line-height: 20px;
+                "
+              >
+                Lorem
+              </h3>
+              <div id="item-footer">
+                <p
+                  style="
+                    margin: 0;
+                    color: rgb(83, 100, 113);
+                    font-family: Libre Franklin;
+                    font-size: 13px;
+                  "
+                >
+                  9,994 Tweets
+                </p>
+              </div>
+            </div>
+            <div id="right-section" style="display: flex; align-items: center">
+              <svg viewBox="0 0 24 24" style="height: 1.25rem">
+                <circle cx="5" cy="12" r="2"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+                <circle cx="19" cy="12" r="2"></circle>
+              </svg>
+            </div>
+          </a>
+          <a
+            id="item-3"
+            style="
+              display: flex;
+              justify-content: space-between;
+              cursor: pointer;
+              padding-bottom: 20px;
+            "
+          >
+            <div
+              id="left-section"
+              style="display: flex; flex-direction: column; row-gap: 5px"
+            >
+              <div
+                id="item-heading"
+                style="
+                  margin: 0;
+                  color: rgb(83, 100, 113);
+                  font-family: Libre Franklin;
+                  font-size: 13px;
+                  display: flex;
+                  flex-direction: row;
+                "
+              >
+                <p style="margin: 0">Test</p>
+                <p style="margin: 0; font-size: 15px; padding: 0px 5px">·</p>
+                <p style="margin: 0">Three</p>
+              </div>
+              <h3
+                style="
+                  margin: 0;
+                  font-family: Libre Franklin;
+                  font-size: 15px;
+                  line-height: 20px;
+                "
+              >
+                Ipsum dolor
+              </h3>
+              <div id="item-footer">
+                <p
+                  style="
+                    margin: 0;
+                    color: rgb(83, 100, 113);
+                    font-family: Libre Franklin;
+                    font-size: 13px;
+                  "
+                >
+                  335 Tweets
+                </p>
+              </div>
+            </div>
+            <div id="right-section" style="display: flex; align-items: center">
+              <svg viewBox="0 0 24 24" style="height: 1.25rem">
+                <circle cx="5" cy="12" r="2"></circle>
+                <circle cx="12" cy="12" r="2"></circle>
+                <circle cx="19" cy="12" r="2"></circle>
+              </svg>
+            </div>
+          </a>
+          <a
+            id="item-4"
+            style="
+              display: flex;
+              justify-content: space-between;
+              cursor: pointer;
+              padding-bottom: 20px;
+            "
+          >
+            <div
+              id="left-section"
+              style="display: flex; flex-direction: column; row-gap: 5px"
+            >
+              <div
+                id="item-heading"
+                style="
+                  margin: 0;
+                  color: rgb(83, 100, 113);
+                  font-family: Libre Franklin;
+                  font-size: 13px;
+                  display: flex;
+                  flex-direction: row;
+                "
+              >
+                <p style="margin: 0">Test</p>
+                <p style="margin: 0; font-size: 15px; padding: 0px 5px">·</p>
+                <p style="margin: 0">Four</p>
+              </div>
+              <h3
+                style="
+                  margin: 0;
+                  font-family: Libre Franklin;
+                  font-size: 15px;
+                  line-height: 20px;
+                "
+              >
+                Veritatis sapiente laborum corrupti accusantium! Maxime
+                repellat, quidem dolorem tenetur eum numquam.
+              </h3>
+            </div>
+            <div id="right-section">
+              <img
+                src="data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                style="
+                  height: 70px;
+                  width: 70px;
+                  border-radius: 12px;
+                  border: 1px solid black; ;
+                "
+              />
+            </div>
+          </a>
+          <a
+            id="item-5"
+            style="
+              display: flex;
+              justify-content: space-between;
+              cursor: pointer;
+              padding-bottom: 20px;
+            "
+          >
+            <div
+              id="left-section"
+              style="display: flex; flex-direction: column; row-gap: 5px"
+            >
+              <div
+                id="item-heading"
+                style="
+                  margin: 0;
+                  color: rgb(83, 100, 113);
+                  font-family: Libre Franklin;
+                  font-size: 13px;
+                  display: flex;
+                  flex-direction: row;
+                "
+              >
+                <p style="margin: 0">Another test</p>
+                <p style="margin: 0; font-size: 15px; padding: 0px 5px">·</p>
+                <p style="margin: 0">5</p>
+              </div>
+              <h3
+                style="
+                  margin: 0;
+                  font-family: Libre Franklin;
+                  font-size: 15px;
+                  line-height: 20px;
+                "
+              >
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Dolores enim provident adipisci eos! Nemo itaque, rerum sapiente
+                sit a labore.
+              </h3>
+            </div>
+            <div id="right-section">
+              <img
+                src="data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                style="
+                  height: 70px;
+                  width: 70px;
+                  border-radius: 12px;
+                  border: 1px solid black; ;
+                "
+              />
+            </div>
+          </a>
+        </div>
+        <div
+          id="who-to-follow"
+          style="
+            font-family: Libre Franklin;
+            padding: 12px 20px;
+            background-color: rgb(239, 243, 244);
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+          "
+        >
+          <h2
+            style="
+              font-size: 20px;
+              font-weight: 800;
+              margin: 0;
+              margin-bottom: 10px;
+            "
+          >
+            Who to follow
+          </h2>
+          <a
+            id="person-1"
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              cursor: pointer;
+              padding-top: 10px;
+              padding-bottom: 20px;
+            "
+          >
+            <div id="left-section" style="display: flex">
+              <img
+                src="data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                alt="User Profile"
+                style="
+                  border-radius: 50%;
+                  height: 48px;
+                  background-color: white;
+                "
+              />
+              <div id="user-name-and-tag" style="margin: 0px 8px">
+                <div
+                  id="user-name"
+                  style="font-family: Libre Franklin; font-weight: 700"
+                >
+                  Aureatus
+                </div>
+                <div
+                  id="user-tag"
+                  style="font-family: Libre Franklin; color: rgb(83, 100, 113)"
+                >
+                  @AureatusDev
+                </div>
+              </div>
+            </div>
+            <div id="right-section">
+              <button
+                id="follow"
+                style="
+                  border: none;
+                  border-radius: 9999px;
+                  background-color: black;
+                  color: white;
+                  font-size: 14px;
+                  font-family: Libre Franklin;
+                  font-weight: 700;
+                  padding: 8px 18px;
+                "
+              >
+                Follow
+              </button>
+            </div>
+          </a>
+          <a
+            id="person-2"
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              cursor: pointer;
+              padding-top: 10px;
+              padding-bottom: 20px;
+            "
+          >
+            <div id="left-section" style="display: flex">
+              <img
+                src="data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                alt="User Profile"
+                style="
+                  border-radius: 50%;
+                  height: 48px;
+                  background-color: white;
+                "
+              />
+              <div id="user-name-and-tag" style="margin: 0px 8px">
+                <div
+                  id="user-name"
+                  style="font-family: Libre Franklin; font-weight: 700"
+                >
+                  Test person 2
+                </div>
+                <div
+                  id="user-tag"
+                  style="font-family: Libre Franklin; color: rgb(83, 100, 113)"
+                >
+                  @Testingtesting
+                </div>
+              </div>
+            </div>
+            <div id="right-section">
+              <button
+                id="follow"
+                style="
+                  border: none;
+                  border-radius: 9999px;
+                  background-color: black;
+                  color: white;
+                  font-size: 14px;
+                  font-family: Libre Franklin;
+                  font-weight: 700;
+                  padding: 8px 18px;
+                "
+              >
+                Follow
+              </button>
+            </div>
+          </a>
+          <a
+            id="person-3"
+            style="
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              cursor: pointer;
+              padding-top: 10px;
+              padding-bottom: 20px;
+            "
+          >
+            <div id="left-section" style="display: flex">
+              <img
+                src="data:image/gif;base64,R0lGODlhAQABAPAAAP///wAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw=="
+                alt="User Profile"
+                style="
+                  border-radius: 50%;
+                  height: 48px;
+                  background-color: white;
+                "
+              />
+              <div id="user-name-and-tag" style="margin: 0px 8px">
+                <div
+                  id="user-name"
+                  style="font-family: Libre Franklin; font-weight: 700"
+                >
+                  Test person 3
+                </div>
+                <div
+                  id="user-tag"
+                  style="font-family: Libre Franklin; color: rgb(83, 100, 113)"
+                >
+                  @Testing123
+                </div>
+              </div>
+            </div>
+            <div id="right-section">
+              <button
+                id="follow"
+                style="
+                  border: none;
+                  border-radius: 9999px;
+                  background-color: black;
+                  color: white;
+                  font-size: 14px;
+                  font-family: Libre Franklin;
+                  font-weight: 700;
+                  padding: 8px 18px;
+                "
+              >
+                Follow
+              </button>
+            </div>
+          </a>
+          <a
+            id="show-more"
+            style="
+              display: flex;
+              align-items: center;
+              cursor: pointer;
+              padding-top: 10px;
+              padding-bottom: 10px;
+              font-family: Libre Franklin;
+              color: rgb(29, 155, 240);
+            "
+            >Show more</a
+          >
+        </div>
+        <!---<div
+          id="terms-and-conditions"
+          style="
+            font-family: Libre Franklin;
+            font-size: 15px;
+            color: rgb(83, 100, 113);
+          "
+        >
+          <a style="font-family: inherit; font-size: inherit; cursor: pointer"
+            >Terms of Service</a
+          >
+          <a style="font-family: inherit; font-size: inherit; cursor: pointer"
+            >Privacy Policy</a
+          >
+          <a style="font-family: inherit; font-size: inherit; cursor: pointer"
+            >Cookie Policy</a
+          >
+          <a style="font-family: inherit; font-size: inherit; cursor: pointer"
+            >Accessibility</a
+          >
+          <a style="font-family: inherit; font-size: inherit; cursor: pointer"
+            >Ads info</a
+          >
+          <a style="font-family: inherit; font-size: inherit; cursor: pointer"
+            >More</a
+          >
+          <span>© 2022 Twitter, Inc.</span>
+        </div>--->
+      </aside>
     </div>
   </body>
 </html>

@@ -17,3 +17,9 @@ This is done for the final assignment of the javascript section of the full stac
   - [ ] Share Chirrups
   - [ ] Load Chirrups ranked by likes, rendering more when needed.
 
+## How to run
+
+1. npm run build
+2. npm install -g serve
+3. serve -s build
+4. The site will now be hosted at localhost:3000

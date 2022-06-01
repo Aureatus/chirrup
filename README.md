@@ -19,7 +19,8 @@ This is done for the final assignment of the javascript section of the full stac
 
 ## How to run
 
-1. npm run build
-2. npm install -g serve
-3. serve -s build
-4. The site will now be hosted at localhost:3000
+1. Clone this repository and navigate to it.
+2. run `npm install`
+3. run `npm run build`
+5. run `serve -s build`
+6. The site will now be hosted at localhost:3000

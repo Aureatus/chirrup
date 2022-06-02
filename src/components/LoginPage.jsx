@@ -36,6 +36,33 @@ const RightSection = styled.section`
 
 const Footer = styled.footer`
   grid-area: 2 / 1 / 3 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
+const StyledNav = styled.nav`
+  color: #536471;
+  display: flex;
+  justify-content: center;
+  column-gap: 15px;
+`;
+
+const StyledButton = styled.button`
+  border: none;
+  background-color: white;
+  color: #536471;
+  font-size: 13px;
+  padding: 0;
+  cursor: pointer;
+`;
+
+const StyledSpan = styled.span`
+  border: none;
+  background-color: white;
+  color: #536471;
+  font-size: 13px;
+  padding: 0;
 `;
 
 function LoginPage() {
@@ -54,7 +81,28 @@ function LoginPage() {
         </StyledSvg>
       </LeftSection>
       <RightSection></RightSection>
-      <Footer></Footer>
+      <Footer>
+        <StyledNav>
+          <StyledButton>About</StyledButton>
+          <StyledButton>Help Center</StyledButton>
+          <StyledButton>Terms Of Service</StyledButton>
+          <StyledButton>Privacy Policy</StyledButton>
+          <StyledButton>Cookie Policy</StyledButton>
+          <StyledButton>Accessibility</StyledButton>
+          <StyledButton>Ads Info</StyledButton>
+          <StyledButton>Blog</StyledButton>
+          <StyledButton>Status</StyledButton>
+          <StyledButton>Careers</StyledButton>
+          <StyledButton>Brand Resources</StyledButton>
+          <StyledButton>Advertising</StyledButton>
+          <StyledButton>Marketing</StyledButton>
+          <StyledButton>Twitter for Business</StyledButton>
+          <StyledButton>Developers</StyledButton>
+          <StyledButton>Directory</StyledButton>
+          <StyledButton>Settings</StyledButton>
+          <StyledSpan>© 2022 Twitter, Inc.</StyledSpan>
+        </StyledNav>
+      </Footer>
     </Container>
   );
 }

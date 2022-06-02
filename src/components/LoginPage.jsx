@@ -13,18 +13,6 @@ const LeftSection = styled.section`
   grid-area: 1 / 1 / 2 / 2;
 `;
 
-const RightSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 36px;
-  grid-area: 1 / 2 / 2 / 3;
-`;
-
-const Footer = styled.footer`
-  grid-area: 2 / 1 / 3 / 3;
-`;
-
 const StyledImg = styled.img`
   height: 100%;
   width: 100%;
@@ -37,6 +25,19 @@ const StyledSvg = styled.svg`
   width: 50%;
   left: 0%;
 `;
+
+const RightSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 36px;
+  grid-area: 1 / 2 / 2 / 3;
+`;
+
+const Footer = styled.footer`
+  grid-area: 2 / 1 / 3 / 3;
+`;
+
 function LoginPage() {
   return (
     <Container>

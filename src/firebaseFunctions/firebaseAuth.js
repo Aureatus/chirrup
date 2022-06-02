@@ -1,3 +1,5 @@
+import { app } from "./firebaseApp";
+
 import {
   getAuth,
   signInWithPopup,

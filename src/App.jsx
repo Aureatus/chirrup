@@ -3,9 +3,14 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./themes";
 
 function App() {
-  const [theme, setTheme] = useState(`light`);
+  const [theme, setTheme] = useState("light");
+
+  const toggleTheme = () => {
+    theme === "light" ? setTheme("dark") : setTheme("light");
+  };
+
   return (
-    <ThemeProvider theme={theme === `light` ? lightTheme : darkTheme}>
+    <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <div></div>
     </ThemeProvider>
   );

@@ -30,7 +30,9 @@ function App() {
       </BrowserRouter>
     );
   }
-  return <div></div>;
+  if (user) {
+    return <div></div>;
+  }
 }
 
 export default App;

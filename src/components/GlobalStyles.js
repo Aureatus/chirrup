@@ -9,5 +9,4 @@ body {
     color: ${({ theme }) => theme.text};
     font-family: Libre franklin;
     font-size: 15px;
-    transition: all 0.50s linear;
 }`;

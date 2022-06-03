@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 import { signInAsGuest } from "../firebaseFunctions/firebaseAuth";
@@ -138,7 +139,7 @@ const SignInSection = styled.section`
   margin-bottom: 20px;
 `;
 
-const SignInButton = styled.button`
+const SignInButton = styled(Link)`
   display: flex;
   width: max-content;
   align-items: center;
@@ -280,7 +281,7 @@ function LoginPage({ setUser }) {
         </TermsAndConditions>
         <SignInSection>
           Already have an account?
-          <SignInButton>Sign In</SignInButton>
+          <SignInButton to={"/sign-in"}>Sign In</SignInButton>
           <GuestSignInButton
             onClick={async () => {
               const user = await signInAsGuest();

@@ -196,6 +196,10 @@ const StyledButton1 = styled.button`
   font-size: 13px;
   padding: 0;
   cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const StyledSpan = styled.span`

@@ -123,6 +123,10 @@ const TermsLink = styled.button`
   color: #1d9bf0;
   padding: 0px 2px;
   cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 const SignInSection = styled.section`

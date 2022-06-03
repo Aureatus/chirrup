@@ -6,6 +6,7 @@ import { lightTheme, darkTheme } from "./components/themes";
 import { GlobalStyles } from "./components/GlobalStyles";
 
 import LoginPage from "./components/LoginPage";
+import SignInPage from "./components/SignInPage";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -22,7 +23,8 @@ function App() {
           <GlobalStyles />
           <Routes>
             <Route path="/" element={<Navigate to="/login" replace={true} />} />
-            <Route path="/login" element={<LoginPage />} />
+            <Route path="/login" element={<LoginPage setUser={setUser} />} />
+            <Route path="/sign-in" element={<SignInPage />} />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>

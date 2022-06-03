@@ -10,11 +10,14 @@ import {
   signInAnonymously,
   createUserWithEmailAndPassword,
   updateProfile,
+  setPersistence,
+  browserLocalPersistence,
 } from "firebase/auth";
 
 const provider = new GoogleAuthProvider();
 
 const auth = getAuth();
+setPersistence(auth, browserLocalPersistence);
 
 const signInWithGoogle = async () => {
   try {

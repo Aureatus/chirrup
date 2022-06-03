@@ -88,6 +88,10 @@ const SignUpWithEmail = styled.button`
   font-size: 15px;
   font-weight: 700;
   color: white;
+
+  &:hover {
+    background-color: #1d8dd8;
+  }
 `;
 
 const SignUpSeparator = styled.div`
@@ -143,7 +147,11 @@ const SignInButton = styled.button`
   font-family: Libre Franklin;
   font-size: 15px;
   font-weight: 700;
-  color: #1d9bf0; ;
+  color: #1d9bf0;
+
+  &:hover {
+    background-color: #83aac460;
+  }
 `;
 
 const GuestSignInButton = styled.button`
@@ -161,6 +169,10 @@ const GuestSignInButton = styled.button`
   font-family: Libre Franklin;
   font-size: 15px;
   font-weight: 700;
+
+  &:hover {
+    background-color: #83aac460;
+  }
 `;
 const Footer = styled.footer`
   grid-area: 2 / 1 / 3 / 3;

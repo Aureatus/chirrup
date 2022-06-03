@@ -24,7 +24,7 @@ function App() {
           <Routes>
             <Route path="/" element={<Navigate to="/login" replace={true} />} />
             <Route path="/login" element={<LoginPage setUser={setUser} />} />
-            <Route path="/sign-in" element={<SignInPage />} />
+            <Route path="/sign-in" element={<SignInPage setUser={setUser} />} />
           </Routes>
         </ThemeProvider>
       </BrowserRouter>

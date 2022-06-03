@@ -7,6 +7,7 @@ import {
   signOut,
   onAuthStateChanged,
   signInWithEmailAndPassword,
+  signInAnonymously,
   createUserWithEmailAndPassword,
   updateProfile,
 } from "firebase/auth";
@@ -38,6 +39,16 @@ const logInWithEmailAndPassword = async (email, password) => {
 const signUpWithEmailAndPassword = async (email, password) => {
   try {
     const result = await createUserWithEmailAndPassword(auth, email, password);
+    return result.user;
+  } catch (error) {
+    console.error(error);
+    alert(error.message);
+  }
+};
+
+const signInAsGuest = async () => {
+  try {
+    const result = await signInAnonymously(auth);
     return result.user;
   } catch (error) {
     console.error(error);
@@ -80,6 +91,7 @@ const getCurrentUser = () => {
 
 export {
   signInWithGoogle,
+  signInAsGuest,
   logInWithEmailAndPassword,
   signUpWithEmailAndPassword,
   signOutofApp,

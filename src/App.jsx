@@ -17,6 +17,7 @@ function App() {
 
   if (!user) {
     return (
+<<<<<<< Updated upstream
       <BrowserRouter>
         <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
           <GlobalStyles />
@@ -26,8 +27,15 @@ function App() {
           </Routes>
         </ThemeProvider>
       </BrowserRouter>
+=======
+      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+        <GlobalStyles />
+        <LoginPage setUser={setUser} />
+      </ThemeProvider>
+>>>>>>> Stashed changes
     );
   }
+  return <div></div>;
 }
 
 export default App;

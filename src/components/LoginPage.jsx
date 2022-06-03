@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { signInAsGuest } from "../firebaseFunctions/firebaseAuth";
+
 const Container = styled.div`
   height: 100%;
   width: 100%;
@@ -214,7 +216,7 @@ const StyledSpan = styled.span`
   padding: 0;
 `;
 
-function LoginPage() {
+function LoginPage({ setUser }) {
   return (
     <Container>
       <LeftSection>
@@ -279,7 +281,14 @@ function LoginPage() {
         <SignInSection>
           Already have an account?
           <SignInButton>Sign In</SignInButton>
-          <GuestSignInButton>Guest sign in</GuestSignInButton>
+          <GuestSignInButton
+            onClick={async () => {
+              const user = await signInAsGuest();
+              setUser(user);
+            }}
+          >
+            Guest sign in
+          </GuestSignInButton>
         </SignInSection>
       </RightSection>
       <Footer>

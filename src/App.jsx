@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 import { lightTheme, darkTheme } from "./components/themes";
@@ -16,10 +17,15 @@ function App() {
 
   if (!user) {
     return (
-      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-        <GlobalStyles />
-        <LoginPage />
-      </ThemeProvider>
+      <BrowserRouter>
+        <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+          <GlobalStyles />
+          <Routes>
+            <Route path="/" element={<Navigate to="/login" replace={true} />} />
+            <Route path="/login" element={<LoginPage />} />
+          </Routes>
+        </ThemeProvider>
+      </BrowserRouter>
     );
   }
 }

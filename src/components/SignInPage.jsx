@@ -149,7 +149,7 @@ const ErrorContainer = styled.div`
   text-align: center;
 `;
 
-const SignInPage = ({ setUser, user }) => {
+const SignInPage = ({ setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");

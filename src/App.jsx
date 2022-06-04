@@ -7,6 +7,7 @@ import { GlobalStyles } from "./components/GlobalStyles";
 
 import LoginPage from "./components/LoginPage";
 import SignInPage from "./components/SignInPage";
+import SignUpPage from "./components/SignUpPage";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -32,6 +33,7 @@ function App() {
           <Route path="/" element={<Navigate to="/login" replace={true} />} />
           <Route path="/login" element={<LoginPage setUser={setUser} />} />
           <Route path="/sign-in" element={<SignInPage setUser={setUser} />} />
+          <Route path="/sign-up" element={<SignUpPage setUser={setUser} />} />
         </Routes>
       </ThemeProvider>
     );

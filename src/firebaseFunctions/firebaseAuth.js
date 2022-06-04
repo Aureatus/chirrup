@@ -10,19 +10,21 @@ import {
   signInAnonymously,
   createUserWithEmailAndPassword,
   updateProfile,
+  setPersistence,
+  browserLocalPersistence,
 } from "firebase/auth";
 
 const provider = new GoogleAuthProvider();
 
 const auth = getAuth();
+setPersistence(auth, browserLocalPersistence);
 
 const signInWithGoogle = async () => {
   try {
     const result = await signInWithPopup(auth, provider);
     return result.user;
   } catch (error) {
-    console.error(error);
-    alert(error.message);
+    return Promise.reject(error);
   }
 };
 
@@ -31,8 +33,7 @@ const logInWithEmailAndPassword = async (email, password) => {
     const result = await signInWithEmailAndPassword(auth, email, password);
     return result.user;
   } catch (error) {
-    console.error(error);
-    alert(error.message);
+    return Promise.reject(error);
   }
 };
 
@@ -41,8 +42,7 @@ const signUpWithEmailAndPassword = async (email, password) => {
     const result = await createUserWithEmailAndPassword(auth, email, password);
     return result.user;
   } catch (error) {
-    console.error(error);
-    alert(error.message);
+    return Promise.reject(error);
   }
 };
 
@@ -51,8 +51,7 @@ const signInAsGuest = async () => {
     const result = await signInAnonymously(auth);
     return result.user;
   } catch (error) {
-    console.error(error);
-    alert(error.message);
+    return Promise.reject(error);
   }
 };
 
@@ -60,8 +59,7 @@ const updateDisplayName = async (user, displayName) => {
   try {
     updateProfile(user, { displayName: displayName });
   } catch (error) {
-    console.error(error);
-    alert(error.message);
+    return Promise.reject(error);
   }
 };
 
@@ -69,8 +67,7 @@ const signOutofApp = async () => {
   try {
     signOut(auth);
   } catch (error) {
-    console.error(error);
-    alert(error.message);
+    return Promise.reject(error);
   }
 };
 

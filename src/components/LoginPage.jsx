@@ -1,4 +1,7 @@
+import { Link } from "react-router-dom";
 import styled from "styled-components";
+
+import { signInAsGuest } from "../firebaseFunctions/firebaseAuth";
 
 const Container = styled.div`
   height: 100%;
@@ -136,7 +139,7 @@ const SignInSection = styled.section`
   margin-bottom: 20px;
 `;
 
-const SignInButton = styled.button`
+const SignInButton = styled(Link)`
   display: flex;
   width: max-content;
   align-items: center;
@@ -214,7 +217,7 @@ const StyledSpan = styled.span`
   padding: 0;
 `;
 
-function LoginPage() {
+function LoginPage({ setUser }) {
   return (
     <Container>
       <LeftSection>
@@ -278,8 +281,15 @@ function LoginPage() {
         </TermsAndConditions>
         <SignInSection>
           Already have an account?
-          <SignInButton>Sign In</SignInButton>
-          <GuestSignInButton>Guest sign in</GuestSignInButton>
+          <SignInButton to={"/sign-in"}>Sign In</SignInButton>
+          <GuestSignInButton
+            onClick={async () => {
+              const user = await signInAsGuest();
+              setUser(user);
+            }}
+          >
+            Guest sign in
+          </GuestSignInButton>
         </SignInSection>
       </RightSection>
       <Footer>

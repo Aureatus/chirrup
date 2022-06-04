@@ -1,11 +1,12 @@
-import { useState } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 import { lightTheme, darkTheme } from "./components/themes";
 import { GlobalStyles } from "./components/GlobalStyles";
 
 import LoginPage from "./components/LoginPage";
+import SignInPage from "./components/SignInPage";
 
 function App() {
   const [user, setUser] = useState(false);
@@ -15,18 +16,31 @@ function App() {
     theme === "light" ? setTheme("dark") : setTheme("light");
   };
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (user) {
+      navigate("/");
+    }
+  }, [user, navigate]);
+
   if (!user) {
     return (
-      <BrowserRouter>
-        <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
-          <GlobalStyles />
-          <Routes>
-            <Route path="/" element={<Navigate to="/login" replace={true} />} />
-            <Route path="/login" element={<LoginPage />} />
-          </Routes>
-        </ThemeProvider>
-      </BrowserRouter>
+      <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+        <GlobalStyles />
+        <Routes>
+          <Route path="/" element={<Navigate to="/login" replace={true} />} />
+          <Route path="/login" element={<LoginPage setUser={setUser} />} />
+          <Route
+            path="/sign-in"
+            element={<SignInPage setUser={setUser} user={user} />}
+          />
+        </Routes>
+      </ThemeProvider>
     );
+  }
+  if (user) {
+    return <div></div>;
   }
 }
 

@@ -1,14 +1,15 @@
 import { useState } from "react";
-import {
-  logInWithEmailAndPassword,
-  signInWithGoogle,
-} from "../firebaseFunctions/firebaseAuth";
-
-import { fetchUserName } from "../firebaseFunctions/firebaseStore";
-
 import styled from "styled-components";
 
-import { useNavigate } from "react-router-dom";
+import {
+  signInWithGoogle,
+  signUpWithEmailAndPassword,
+  getCurrentUser,
+} from "../firebaseFunctions/firebaseAuth";
+import {
+  fetchUserName,
+  createUserName,
+} from "../firebaseFunctions/firebaseStore";
 
 const Background = styled.div`
   height: 100%;
@@ -42,7 +43,7 @@ const Header1 = styled.div`
   font-weight: 700;
 `;
 
-const SignInWithGoogle = styled.button`
+const SignUpWithGoogle = styled.button`
   display: flex;
   width: max-content;
   align-items: center;
@@ -130,7 +131,12 @@ const PasswordInput = styled.input`
   }
 `;
 
-const LoginButton = styled.button`
+const NextButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15%;
+  width: 100%;
   border: none;
   border-radius: 9999px;
   background-color: black;
@@ -138,7 +144,7 @@ const LoginButton = styled.button`
   font-family: Libre Franklin;
   font-size: 15px;
   font-weight: 700;
-  padding: 4% 40%;
+
   cursor: pointer;
 `;
 
@@ -151,11 +157,96 @@ const ErrorContainer = styled.div`
   text-align: center;
 `;
 
-const SignInPage = ({ setUser }) => {
+const UserNameInput = styled.input`
+  box-sizing: border-box;
+  border: 1px solid #cfd9de;
+  border-radius: 5px;
+  width: 50%;
+  height: 8%;
+  padding: 6% 0px;
+  text-align: center;
+  font-family: Libre Franklin;
+  font-size: 17px;
+  margin-top: 5%;
+
+  &:focus-visible {
+    outline: none;
+    border: 1px solid #1d9bf0;
+
+    &::placeholder {
+      color: #1d9bf0;
+    }
+  }
+`;
+
+const SignUpButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8%;
+  width: 50%;
+  border: none;
+  border-radius: 9999px;
+  background-color: #1d9bf0;
+  color: white;
+  font-family: Libre Franklin;
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 5%;
+
+  cursor: pointer;
+`;
+
+const SignUpPage = ({ setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
-  const navigate = useNavigate();
+  const [nextClicked, setNextClicked] = useState(false);
+  const [userName, setUserName] = useState("");
+
+  if (nextClicked) {
+    return (
+      <Background>
+        <Container>
+          <Header1>Please enter a user name.</Header1>
+          <UserNameInput
+            type="text"
+            placeholder="Username"
+            required
+            onChange={(e) => {
+              if (e.target.validity) {
+                setUserName(e.target.value);
+              }
+            }}
+          />
+          <ErrorContainer>{errorMessage}</ErrorContainer>
+          <SignUpButton
+            onClick={async () => {
+              if (!userName) {
+                setErrorMessage("User name is required.");
+                return;
+              } else {
+                const user = getCurrentUser();
+                try {
+                  if (user.providerData[0].providerId === "password") {
+                    await createUserName(user.uid, userName);
+                    setUser(user);
+                  } else if (user.providerData[0].providerId === "google.com") {
+                    await fetchUserName(user.uid);
+                  }
+                } catch (error) {
+                  await createUserName(user.uid, userName);
+                  setUser(user);
+                }
+              }
+            }}
+          >
+            Sign up!
+          </SignUpButton>
+        </Container>
+      </Background>
+    );
+  }
 
   return (
     <Background>
@@ -168,15 +259,15 @@ const SignInPage = ({ setUser }) => {
             ></path>
           </svg>
         </SmallTwitterLogoContainer>
-        <Header1>Sign in to Twitter</Header1>
-        <SignInWithGoogle
+        <Header1>Sign up to Twitter</Header1>
+        <SignUpWithGoogle
           onClick={async () => {
             try {
               const user = await signInWithGoogle();
               await fetchUserName(user.uid);
-              setUser(user);
+              setErrorMessage("Already signed up");
             } catch (error) {
-              setErrorMessage(error.message);
+              setNextClicked(true);
             }
           }}
         >
@@ -198,8 +289,8 @@ const SignInPage = ({ setUser }) => {
               fill="#4285F4"
             ></path>
           </svg>
-          <div>Sign in with Google</div>
-        </SignInWithGoogle>
+          <div>Sign up with Google</div>
+        </SignUpWithGoogle>
         <SignUpSeparator>
           <SignUpHr />
           <span>or</span>
@@ -211,7 +302,9 @@ const SignInPage = ({ setUser }) => {
             placeholder="Email address"
             required
             onChange={(e) => {
-              setEmail(e.target.value);
+              if (e.target.validity) {
+                setEmail(e.target.value);
+              }
             }}
           />
           <PasswordInput
@@ -219,27 +312,29 @@ const SignInPage = ({ setUser }) => {
             placeholder="password"
             required
             onChange={(e) => {
-              setPassword(e.target.value);
+              if (e.target.validity) {
+                setPassword(e.target.value);
+              }
             }}
           />
-          <LoginButton
+          <NextButton
             onClick={async () => {
               if (!email || !password) {
                 setErrorMessage("Email and password must be filled in.");
                 return;
-              }
-              try {
-                const user = await logInWithEmailAndPassword(email, password);
-                await fetchUserName(user.uid);
-                setUser(user);
-              } catch (error) {
-                navigate("/choose-user-name");
-                setErrorMessage(error.message);
+              } else {
+                try {
+                  await signUpWithEmailAndPassword(email, password);
+                  setNextClicked(true);
+                  setErrorMessage("");
+                } catch (error) {
+                  setErrorMessage(error.message);
+                }
               }
             }}
           >
-            Log in
-          </LoginButton>
+            Next
+          </NextButton>
         </EmailLoginContainer>
         <ErrorContainer>{errorMessage}</ErrorContainer>
       </Container>
@@ -247,4 +342,4 @@ const SignInPage = ({ setUser }) => {
   );
 };
 
-export default SignInPage;
+export default SignUpPage;

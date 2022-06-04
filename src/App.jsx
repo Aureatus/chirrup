@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react";
-import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
+import { useState } from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 import { lightTheme, darkTheme } from "./components/themes";
@@ -7,24 +7,19 @@ import { GlobalStyles } from "./components/GlobalStyles";
 
 import LoginPage from "./components/LoginPage";
 import SignInPage from "./components/SignInPage";
+import SignUpPage from "./components/SignUpPage";
+import ChooseUserName from "./components/ChooseUserName";
 
 function App() {
   const [user, setUser] = useState(false);
   const [theme, setTheme] = useState("light");
+  const [userName, setUserName] = useState("");
 
   const toggleTheme = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
   };
 
-  const navigate = useNavigate();
-
-  useEffect(() => {
-    if (user) {
-      navigate("/");
-    }
-  }, [user, navigate]);
-
-  if (!user) {
+  if (!user || !userName) {
     return (
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
         <GlobalStyles />
@@ -32,6 +27,13 @@ function App() {
           <Route path="/" element={<Navigate to="/login" replace={true} />} />
           <Route path="/login" element={<LoginPage setUser={setUser} />} />
           <Route path="/sign-in" element={<SignInPage setUser={setUser} />} />
+          <Route path="/sign-up" element={<SignUpPage setUser={setUser} />} />
+          <Route
+            path="/choose-user-name"
+            element={
+              <ChooseUserName setUser={setUser} setUserName={setUserName} />
+            }
+          />
         </Routes>
       </ThemeProvider>
     );

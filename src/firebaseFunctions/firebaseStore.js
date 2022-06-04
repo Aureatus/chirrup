@@ -1,6 +1,6 @@
 import { app } from "./firebaseApp";
 
-import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
 
 const db = getFirestore(app);
 
@@ -15,4 +15,8 @@ const fetchUserName = async (uid) => {
   }
 };
 
-export { fetchUserName };
+const createUserName = async (uid, userName) => {
+  await setDoc(doc(db, "userNames", uid), { userName: userName });
+};
+
+export { fetchUserName, createUserName };

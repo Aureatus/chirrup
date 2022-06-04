@@ -1,8 +1,15 @@
 import { useState } from "react";
 import styled from "styled-components";
 
-import { signInWithGoogle } from "../firebaseFunctions/firebaseAuth";
-import { fetchUserName } from "../firebaseFunctions/firebaseStore";
+import {
+  signInWithGoogle,
+  signUpWithEmailAndPassword,
+  getCurrentUser,
+} from "../firebaseFunctions/firebaseAuth";
+import {
+  fetchUserName,
+  createUserName,
+} from "../firebaseFunctions/firebaseStore";
 
 const Background = styled.div`
   height: 100%;
@@ -150,14 +157,95 @@ const ErrorContainer = styled.div`
   text-align: center;
 `;
 
+const UserNameInput = styled.input`
+  box-sizing: border-box;
+  border: 1px solid #cfd9de;
+  border-radius: 5px;
+  width: 50%;
+  height: 8%;
+  padding: 6% 0px;
+  text-align: center;
+  font-family: Libre Franklin;
+  font-size: 17px;
+  margin-top: 5%;
+
+  &:focus-visible {
+    outline: none;
+    border: 1px solid #1d9bf0;
+
+    &::placeholder {
+      color: #1d9bf0;
+    }
+  }
+`;
+
+const SignUpButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8%;
+  width: 50%;
+  border: none;
+  border-radius: 9999px;
+  background-color: #1d9bf0;
+  color: white;
+  font-family: Libre Franklin;
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 5%;
+
+  cursor: pointer;
+`;
+
 const SignUpPage = ({ setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [nextClicked, setNextClicked] = useState(false);
+  const [userName, setUserName] = useState("");
 
   if (nextClicked) {
-    return <div></div>;
+    return (
+      <Background>
+        <Container>
+          <Header1>Please enter a user name.</Header1>
+          <UserNameInput
+            type="text"
+            placeholder="Username"
+            required
+            onChange={(e) => {
+              if (e.target.validity) {
+                setUserName(e.target.value);
+              }
+            }}
+          />
+          <ErrorContainer>{errorMessage}</ErrorContainer>
+          <SignUpButton
+            onClick={async () => {
+              if (!userName) {
+                setErrorMessage("User name is required.");
+                return;
+              } else {
+                const user = getCurrentUser();
+                try {
+                  if (user.providerData[0].providerId === "password") {
+                    await createUserName(user.uid, userName);
+                    setUser(user);
+                  } else if (user.providerData[0].providerId === "google.com") {
+                    await fetchUserName(user.uid);
+                  }
+                } catch (error) {
+                  await createUserName(user.uid, userName);
+                  setUser(user);
+                }
+              }
+            }}
+          >
+            Sign up!
+          </SignUpButton>
+        </Container>
+      </Background>
+    );
   }
 
   return (
@@ -176,7 +264,7 @@ const SignUpPage = ({ setUser }) => {
           onClick={async () => {
             try {
               const user = await signInWithGoogle();
-              const userName = await fetchUserName(user.uid);
+              await fetchUserName(user.uid);
               setErrorMessage("Already signed up");
             } catch (error) {
               setNextClicked(true);
@@ -235,7 +323,13 @@ const SignUpPage = ({ setUser }) => {
                 setErrorMessage("Email and password must be filled in.");
                 return;
               } else {
-                setNextClicked(true);
+                try {
+                  await signUpWithEmailAndPassword(email, password);
+                  setNextClicked(true);
+                  setErrorMessage("");
+                } catch (error) {
+                  setErrorMessage(error.message);
+                }
               }
             }}
           >

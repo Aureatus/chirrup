@@ -8,6 +8,8 @@ import { fetchUserName } from "../firebaseFunctions/firebaseStore";
 
 import styled from "styled-components";
 
+import { useNavigate } from "react-router-dom";
+
 const Background = styled.div`
   height: 100%;
   width: 100%;
@@ -153,6 +155,7 @@ const SignInPage = ({ setUser }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+  const navigate = useNavigate();
 
   return (
     <Background>
@@ -170,7 +173,7 @@ const SignInPage = ({ setUser }) => {
           onClick={async () => {
             try {
               const user = await signInWithGoogle();
-              const userName = await fetchUserName(user.uid);
+              await fetchUserName(user.uid);
               setUser(user);
             } catch (error) {
               setErrorMessage(error.message);
@@ -227,9 +230,10 @@ const SignInPage = ({ setUser }) => {
               }
               try {
                 const user = await logInWithEmailAndPassword(email, password);
-                const userName = await fetchUserName(user.uid);
+                await fetchUserName(user.uid);
                 setUser(user);
               } catch (error) {
+                navigate("/choose-user-name");
                 setErrorMessage(error.message);
               }
             }}

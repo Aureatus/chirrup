@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { signInAsGuest } from "../firebaseFunctions/firebaseAuth";
+import { signInAsGuest } from "../../firebaseFunctions/firebaseAuth";
 
 const Container = styled.div`
   height: 100%;

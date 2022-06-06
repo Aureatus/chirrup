@@ -2,9 +2,9 @@ import { useState } from "react";
 import {
   logInWithEmailAndPassword,
   signInWithGoogle,
-} from "../firebaseFunctions/firebaseAuth";
+} from "../../firebaseFunctions/firebaseAuth";
 
-import { fetchUserName } from "../firebaseFunctions/firebaseStore";
+import { fetchUserName } from "../../firebaseFunctions/firebaseStore";
 
 import styled from "styled-components";
 

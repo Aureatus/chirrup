@@ -6,11 +6,11 @@ import {
   signInWithGoogle,
   signUpWithEmailAndPassword,
   getCurrentUser,
-} from "../firebaseFunctions/firebaseAuth";
+} from "../../firebaseFunctions/firebaseAuth";
 import {
   fetchUserName,
   createUserName,
-} from "../firebaseFunctions/firebaseStore";
+} from "../../firebaseFunctions/firebaseStore";
 
 const Background = styled.div`
   height: 100%;

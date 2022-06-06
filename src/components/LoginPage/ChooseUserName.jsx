@@ -4,8 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
 
-import { getCurrentUser } from "../firebaseFunctions/firebaseAuth";
-import { createUserName } from "../firebaseFunctions/firebaseStore";
+import { getCurrentUser } from "../../firebaseFunctions/firebaseAuth";
+import { createUserName } from "../../firebaseFunctions/firebaseStore";
 
 const Background = styled.div`
   height: 100%;

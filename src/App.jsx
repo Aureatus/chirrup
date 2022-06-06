@@ -5,10 +5,10 @@ import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "./components/themes";
 import { GlobalStyles } from "./components/GlobalStyles";
 
-import LoginPage from "./components/LoginPage";
-import SignInPage from "./components/SignInPage";
-import SignUpPage from "./components/SignUpPage";
-import ChooseUserName from "./components/ChooseUserName";
+import LoginPage from "./components/LoginPage/LoginPage";
+import SignInPage from "./components/LoginPage/SignInPage";
+import SignUpPage from "./components/LoginPage/SignUpPage";
+import ChooseUserName from "./components/LoginPage/ChooseUserName";
 
 function App() {
   const [user, setUser] = useState(false);

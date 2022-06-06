@@ -9,7 +9,7 @@ import { Background, Container } from "./StyledComponents";
 import { getCurrentUser } from "../../firebaseFunctions/firebaseAuth";
 import { createUserName } from "../../firebaseFunctions/firebaseStore";
 
-const Header1 = styled.div`
+const Header1 = styled.h1`
   font-size: 31px;
   font-weight: 700;
 `;

@@ -2,7 +2,11 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
-import { Background, Container } from "./StyledComponents";
+import {
+  Background,
+  Container,
+  SmallTwitterLogoContainer,
+} from "./StyledComponents";
 
 import {
   signInWithGoogle,
@@ -13,10 +17,6 @@ import {
   fetchUserName,
   createUserName,
 } from "../../firebaseFunctions/firebaseStore";
-
-const SmallTwitterLogoContainer = styled.div`
-  width: 6%;
-`;
 
 const Header1 = styled.div`
   font-size: 31px;

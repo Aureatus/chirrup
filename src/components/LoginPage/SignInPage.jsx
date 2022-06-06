@@ -8,13 +8,13 @@ import { fetchUserName } from "../../firebaseFunctions/firebaseStore";
 
 import styled from "styled-components";
 
-import { Background, Container } from "./StyledComponents";
+import {
+  Background,
+  Container,
+  SmallTwitterLogoContainer,
+} from "./StyledComponents";
 
 import { useNavigate } from "react-router-dom";
-
-const SmallTwitterLogoContainer = styled.div`
-  width: 6%;
-`;
 
 const Header1 = styled.div`
   font-size: 31px;

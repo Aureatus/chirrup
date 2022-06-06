@@ -50,6 +50,10 @@ const StyledBackgroundImg = styled.img`
   object-fit: cover;
 `;
 
+const SmallTwitterLogoContainer = styled.div`
+  width: 6%;
+`;
+
 export {
   Background,
   LoginContainer,
@@ -57,4 +61,5 @@ export {
   LeftSection,
   RightSection,
   StyledBackgroundImg,
+  SmallTwitterLogoContainer,
 };

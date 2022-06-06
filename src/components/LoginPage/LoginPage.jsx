@@ -1,15 +1,14 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { LoginContainer, LeftSection, RightSection } from "./StyledComponents";
+import {
+  LoginContainer,
+  LeftSection,
+  RightSection,
+  StyledBackgroundImg,
+} from "./StyledComponents";
 
 import { signInAsGuest } from "../../firebaseFunctions/firebaseAuth";
-
-const StyledImg = styled.img`
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-`;
 
 const StyledSvg = styled.svg`
   position: absolute;
@@ -168,7 +167,7 @@ function LoginPage({ setUser }) {
   return (
     <LoginContainer>
       <LeftSection>
-        <StyledImg
+        <StyledBackgroundImg
           src="https://abs.twimg.com/sticky/illustrations/lohp_en_1302x955.png"
           alt="Twitter background"
         />

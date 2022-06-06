@@ -44,4 +44,17 @@ const RightSection = styled.section`
   grid-area: 1 / 2 / 2 / 3;
 `;
 
-export { Background, LoginContainer, Container, LeftSection, RightSection };
+const StyledBackgroundImg = styled.img`
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+`;
+
+export {
+  Background,
+  LoginContainer,
+  Container,
+  LeftSection,
+  RightSection,
+  StyledBackgroundImg,
+};

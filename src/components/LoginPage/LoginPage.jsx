@@ -6,6 +6,7 @@ import {
   LeftSection,
   RightSection,
   StyledBackgroundImg,
+  SmallTwitterLogoContainer,
 } from "./StyledComponents";
 
 import { signInAsGuest } from "../../firebaseFunctions/firebaseAuth";
@@ -15,11 +16,6 @@ const StyledSvg = styled.svg`
   height: 40%;
   width: 50%;
   left: 0%;
-`;
-
-const SmallTwitterLogoContainer = styled.div`
-  width: 5%;
-  padding-bottom: 12px;
 `;
 
 const Header1 = styled.h1`

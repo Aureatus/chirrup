@@ -151,7 +151,7 @@ const ErrorContainer = styled.div`
   text-align: center;
 `;
 
-const SignInPage = ({ setUser }) => {
+const SignInPage = ({ setUser, setUserName }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -173,8 +173,10 @@ const SignInPage = ({ setUser }) => {
           onClick={async () => {
             try {
               const user = await signInWithGoogle();
-              await fetchUserName(user.uid);
+              const userName = await fetchUserName(user.uid);
               setUser(user);
+              setUserName(userName);
+              navigate("/");
             } catch (error) {
               setErrorMessage(error.message);
             }
@@ -230,8 +232,10 @@ const SignInPage = ({ setUser }) => {
               }
               try {
                 const user = await logInWithEmailAndPassword(email, password);
-                await fetchUserName(user.uid);
+                const userName = await fetchUserName(user.uid);
                 setUser(user);
+                setUserName(userName);
+                navigate("/");
               } catch (error) {
                 navigate("/choose-user-name");
                 setErrorMessage(error.message);

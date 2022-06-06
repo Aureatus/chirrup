@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 
 import {
@@ -197,12 +198,14 @@ const SignUpButton = styled.button`
   cursor: pointer;
 `;
 
-const SignUpPage = ({ setUser }) => {
+const SignUpPage = ({ setUser, setUserName }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [nextClicked, setNextClicked] = useState(false);
-  const [userName, setUserName] = useState("");
+  const [inputUserName, setInputUsername] = useState("");
+
+  const navigate = useNavigate();
 
   if (nextClicked) {
     return (
@@ -215,28 +218,35 @@ const SignUpPage = ({ setUser }) => {
             required
             onChange={(e) => {
               if (e.target.validity) {
-                setUserName(e.target.value);
+                setInputUsername(e.target.value);
               }
             }}
           />
           <ErrorContainer>{errorMessage}</ErrorContainer>
           <SignUpButton
             onClick={async () => {
-              if (!userName) {
+              if (!inputUserName) {
                 setErrorMessage("User name is required.");
                 return;
               } else {
                 const user = getCurrentUser();
                 try {
                   if (user.providerData[0].providerId === "password") {
-                    await createUserName(user.uid, userName);
+                    await createUserName(user.uid, inputUserName);
                     setUser(user);
+                    setUserName(inputUserName);
+                    navigate("/");
                   } else if (user.providerData[0].providerId === "google.com") {
-                    await fetchUserName(user.uid);
+                    const userName = await fetchUserName(user.uid);
+                    setUser(user);
+                    setUserName(userName);
+                    navigate("/");
                   }
                 } catch (error) {
-                  await createUserName(user.uid, userName);
+                  await createUserName(user.uid, inputUserName);
                   setUser(user);
+                  setUserName(inputUserName);
+                  navigate("/");
                 }
               }
             }}

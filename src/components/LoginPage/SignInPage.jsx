@@ -8,23 +8,9 @@ import { fetchUserName } from "../../firebaseFunctions/firebaseStore";
 
 import styled from "styled-components";
 
-import { Background } from "./StyledComponents";
+import { Background, Container } from "./StyledComponents";
 
 import { useNavigate } from "react-router-dom";
-
-const Container = styled.div`
-  height: 60%;
-  width: 30%;
-  background-color: white;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-
-  row-gap: 1%;
-
-  border-radius: 15px;
-`;
 
 const SmallTwitterLogoContainer = styled.div`
   width: 6%;

@@ -1,14 +1,9 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { signInAsGuest } from "../../firebaseFunctions/firebaseAuth";
+import { LoginContainer } from "./StyledComponents";
 
-const Container = styled.div`
-  height: 100%;
-  width: 100%;
-  display: grid;
-  grid-template: 95% 5% / 1fr 1fr;
-`;
+import { signInAsGuest } from "../../firebaseFunctions/firebaseAuth";
 
 const LeftSection = styled.section`
   display: flex;
@@ -185,7 +180,7 @@ const StyledSpan = styled.span`
 
 function LoginPage({ setUser }) {
   return (
-    <Container>
+    <LoginContainer>
       <LeftSection>
         <StyledImg
           src="https://abs.twimg.com/sticky/illustrations/lohp_en_1302x955.png"
@@ -254,7 +249,7 @@ function LoginPage({ setUser }) {
           <StyledSpan>© 2022 Twitter, Inc.</StyledSpan>
         </StyledNav>
       </Footer>
-    </Container>
+    </LoginContainer>
   );
 }
 

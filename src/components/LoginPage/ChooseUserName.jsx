@@ -4,17 +4,10 @@ import { useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
 
+import { Background } from "./StyledComponents";
+
 import { getCurrentUser } from "../../firebaseFunctions/firebaseAuth";
 import { createUserName } from "../../firebaseFunctions/firebaseStore";
-
-const Background = styled.div`
-  height: 100%;
-  width: 100%;
-  background-color: #00000060;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
 const Container = styled.div`
   height: 60%;

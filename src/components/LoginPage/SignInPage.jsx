@@ -8,16 +8,9 @@ import { fetchUserName } from "../../firebaseFunctions/firebaseStore";
 
 import styled from "styled-components";
 
-import { useNavigate } from "react-router-dom";
+import { Background } from "./StyledComponents";
 
-const Background = styled.div`
-  height: 100%;
-  width: 100%;
-  background-color: #00000060;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
+import { useNavigate } from "react-router-dom";
 
 const Container = styled.div`
   height: 60%;

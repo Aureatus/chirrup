@@ -21,15 +21,11 @@ const StyledSvg = styled.svg`
 const Header1 = styled.h1`
   font-size: 64px;
   font-weight: 800;
-  letter-spacing: -1.2px;
-  margin: 48px 0px;
 `;
 
 const Header2 = styled.h2`
   font-size: 31px;
   font-weight: 700;
-  margin: 0;
-  margin-bottom: 32px;
 `;
 
 const SignUp = styled(Link)`

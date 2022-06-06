@@ -12,14 +12,10 @@ import {
   Background,
   Container,
   SmallTwitterLogoContainer,
+  Header2,
 } from "./StyledComponents";
 
 import { useNavigate } from "react-router-dom";
-
-const Header1 = styled.h1`
-  font-size: 31px;
-  font-weight: 700;
-`;
 
 const SignInWithGoogle = styled.button`
   display: flex;
@@ -147,7 +143,7 @@ const SignInPage = ({ setUser, setUserName }) => {
             ></path>
           </svg>
         </SmallTwitterLogoContainer>
-        <Header1>Sign in to Twitter</Header1>
+        <Header2>Sign in to Twitter</Header2>
         <SignInWithGoogle
           onClick={async () => {
             try {

@@ -4,15 +4,10 @@ import { useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
 
-import { Background, Container } from "./StyledComponents";
+import { Background, Container, Header2 } from "./StyledComponents";
 
 import { getCurrentUser } from "../../firebaseFunctions/firebaseAuth";
 import { createUserName } from "../../firebaseFunctions/firebaseStore";
-
-const Header1 = styled.h1`
-  font-size: 31px;
-  font-weight: 700;
-`;
 
 const UserNameInput = styled.input`
   box-sizing: border-box;
@@ -72,7 +67,7 @@ const ChooseUserName = ({ setUser, setUserName }) => {
   return (
     <Background>
       <Container>
-        <Header1>Please enter a user name.</Header1>
+        <Header2>Please enter a user name.</Header2>
         <UserNameInput
           type="text"
           placeholder="Username"

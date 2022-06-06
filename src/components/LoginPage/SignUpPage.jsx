@@ -6,6 +6,7 @@ import {
   Background,
   Container,
   SmallTwitterLogoContainer,
+  Header2,
 } from "./StyledComponents";
 
 import {
@@ -17,11 +18,6 @@ import {
   fetchUserName,
   createUserName,
 } from "../../firebaseFunctions/firebaseStore";
-
-const Header1 = styled.h1`
-  font-size: 31px;
-  font-weight: 700;
-`;
 
 const SignUpWithGoogle = styled.button`
   display: flex;
@@ -190,7 +186,7 @@ const SignUpPage = ({ setUser, setUserName }) => {
     return (
       <Background>
         <Container>
-          <Header1>Please enter a user name.</Header1>
+          <Header2>Please enter a user name.</Header2>
           <UserNameInput
             type="text"
             placeholder="Username"
@@ -248,7 +244,7 @@ const SignUpPage = ({ setUser, setUserName }) => {
             ></path>
           </svg>
         </SmallTwitterLogoContainer>
-        <Header1>Sign up to Twitter</Header1>
+        <Header2>Sign up to Twitter</Header2>
         <SignUpWithGoogle
           onClick={async () => {
             try {

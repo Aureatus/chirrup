@@ -1,15 +1,9 @@
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 
-import { LoginContainer } from "./StyledComponents";
+import { LoginContainer, LeftSection, RightSection } from "./StyledComponents";
 
 import { signInAsGuest } from "../../firebaseFunctions/firebaseAuth";
-
-const LeftSection = styled.section`
-  display: flex;
-  align-items: center;
-  grid-area: 1 / 1 / 2 / 2;
-`;
 
 const StyledImg = styled.img`
   height: 100%;
@@ -22,14 +16,6 @@ const StyledSvg = styled.svg`
   height: 40%;
   width: 50%;
   left: 0%;
-`;
-
-const RightSection = styled.section`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 36px;
-  grid-area: 1 / 2 / 2 / 3;
 `;
 
 const SmallTwitterLogoContainer = styled.div`

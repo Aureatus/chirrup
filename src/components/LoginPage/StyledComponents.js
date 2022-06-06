@@ -30,4 +30,18 @@ const Container = styled.div`
   border-radius: 15px;
 `;
 
-export { Background, LoginContainer, Container };
+const LeftSection = styled.section`
+  display: flex;
+  align-items: center;
+  grid-area: 1 / 1 / 2 / 2;
+`;
+
+const RightSection = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 36px;
+  grid-area: 1 / 2 / 2 / 3;
+`;
+
+export { Background, LoginContainer, Container, LeftSection, RightSection };

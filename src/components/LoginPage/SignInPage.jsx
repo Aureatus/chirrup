@@ -38,7 +38,7 @@ const SignInWithGoogle = styled.button`
   }
 `;
 
-const SignUpSeparator = styled.div`
+const SignInSeparator = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -48,7 +48,7 @@ const SignUpSeparator = styled.div`
   width: 100%;
 `;
 
-const SignUpHr = styled.hr`
+const SignInHr = styled.hr`
   border: none;
   border-top: 1px solid rgb(239, 243, 244);
   width: 16%;
@@ -177,11 +177,11 @@ const SignInPage = ({ setUser, setUserName }) => {
           </svg>
           <div>Sign in with Google</div>
         </SignInWithGoogle>
-        <SignUpSeparator>
-          <SignUpHr />
+        <SignInSeparator>
+          <SignInHr />
           <span>or</span>
-          <SignUpHr />
-        </SignUpSeparator>
+          <SignInHr />
+        </SignInSeparator>
         <EmailLoginContainer>
           <EmailInput
             type="email"

@@ -18,7 +18,7 @@ import {
 
 import { signInAsGuest } from "../../firebaseFunctions/firebaseAuth";
 
-const GuestSignInLink = styled.button`
+const GuestSignInButton = styled.button`
   display: flex;
   width: max-content;
   align-items: center;
@@ -113,14 +113,14 @@ function LoginPage({ setUser }) {
         <SignInSection>
           Already have an account?
           <SignInLink to={"/sign-in"}>Sign In</SignInLink>
-          <GuestSignInLink
+          <GuestSignInButton
             onClick={async () => {
               const user = await signInAsGuest();
               setUser(user);
             }}
           >
             Guest sign in
-          </GuestSignInLink>
+          </GuestSignInButton>
         </SignInSection>
       </RightSection>
       <Footer>

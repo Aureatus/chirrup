@@ -15,6 +15,7 @@ import {
   Header2,
   EmailInput,
   PasswordInput,
+  ErrorContainer,
 } from "./StyledComponents";
 
 import { useNavigate } from "react-router-dom";
@@ -77,15 +78,6 @@ const LoginButton = styled.button`
   font-weight: 700;
   padding: 4% 40%;
   cursor: pointer;
-`;
-
-const ErrorContainer = styled.div`
-  height: auto;
-  width: 100%;
-
-  color: crimson;
-
-  text-align: center;
 `;
 
 const SignInPage = ({ setUser, setUserName }) => {

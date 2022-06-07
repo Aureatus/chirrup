@@ -14,6 +14,7 @@ import {
   EmailInput,
   PasswordInput,
   NextButton,
+  ErrorContainer,
 } from "./StyledComponents";
 
 import {
@@ -25,15 +26,6 @@ import {
   fetchUserName,
   createUserName,
 } from "../../firebaseFunctions/firebaseStore";
-
-const ErrorContainer = styled.div`
-  height: auto;
-  width: 100%;
-
-  color: crimson;
-
-  text-align: center;
-`;
 
 const UserNameInput = styled.input`
   box-sizing: border-box;

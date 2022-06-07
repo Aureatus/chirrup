@@ -4,7 +4,12 @@ import { useNavigate } from "react-router-dom";
 
 import styled from "styled-components";
 
-import { Background, Container, Header2 } from "./StyledComponents";
+import {
+  Background,
+  Container,
+  Header2,
+  ErrorContainer,
+} from "./StyledComponents";
 
 import { getCurrentUser } from "../../firebaseFunctions/firebaseAuth";
 import { createUserName } from "../../firebaseFunctions/firebaseStore";
@@ -29,15 +34,6 @@ const UserNameInput = styled.input`
       color: #1d9bf0;
     }
   }
-`;
-
-const ErrorContainer = styled.div`
-  height: auto;
-  width: 100%;
-
-  color: crimson;
-
-  text-align: center;
 `;
 
 const SetNameButton = styled.button`

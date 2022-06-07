@@ -305,6 +305,15 @@ const NextButton = styled.button`
   cursor: pointer;
 `;
 
+const ErrorContainer = styled.div`
+  height: auto;
+  width: 100%;
+
+  color: crimson;
+
+  text-align: center;
+`;
+
 export {
   Background,
   LoginContainer,
@@ -333,4 +342,5 @@ export {
   EmailInput,
   PasswordInput,
   NextButton,
+  ErrorContainer,
 };

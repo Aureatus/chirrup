@@ -178,6 +178,20 @@ const StyledNav = styled.nav`
   column-gap: 15px;
 `;
 
+const StyledNavButton = styled.button`
+  border: none;
+  background-color: white;
+  color: #536471;
+  font-family: Libre Franklin;
+  font-size: 13px;
+  padding: 0;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
 export {
   Background,
   LoginContainer,
@@ -197,4 +211,5 @@ export {
   GuestSignInButton,
   Footer,
   StyledNav,
+  StyledNavButton,
 };

@@ -17,23 +17,10 @@ import {
   GuestSignInButton,
   Footer,
   StyledNav,
+  StyledNavButton,
 } from "./StyledComponents";
 
 import { signInAsGuest } from "../../firebaseFunctions/firebaseAuth";
-
-const StyledNavButton = styled.button`
-  border: none;
-  background-color: white;
-  color: #536471;
-  font-family: Libre Franklin;
-  font-size: 13px;
-  padding: 0;
-  cursor: pointer;
-
-  &:hover {
-    text-decoration: underline;
-  }
-`;
 
 const StyledSpan = styled.span`
   border: none;

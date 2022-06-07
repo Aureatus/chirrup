@@ -121,6 +121,28 @@ const SignInSection = styled.section`
   margin-bottom: 20px;
 `;
 
+const SignInLink = styled(Link)`
+  display: flex;
+  width: max-content;
+  align-items: center;
+  background-color: white;
+  border: solid 1px rgb(218, 220, 224);
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 1.2% 14%;
+  cursor: pointer;
+  margin-top: 20px;
+  margin-bottom: 8px;
+  font-family: Libre Franklin;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1d9bf0;
+
+  &:hover {
+    background-color: #83aac460;
+  }
+`;
+
 export {
   Background,
   LoginContainer,
@@ -136,4 +158,5 @@ export {
   TermsAndConditions,
   TermsLink,
   SignInSection,
+  SignInLink,
 };

@@ -314,6 +314,28 @@ const ErrorContainer = styled.div`
   text-align: center;
 `;
 
+const UserNameInput = styled.input`
+  box-sizing: border-box;
+  border: 1px solid #cfd9de;
+  border-radius: 5px;
+  width: 50%;
+  height: 8%;
+  padding: 6% 0px;
+  text-align: center;
+  font-family: Libre Franklin;
+  font-size: 17px;
+  margin-top: 5%;
+
+  &:focus-visible {
+    outline: none;
+    border: 1px solid #1d9bf0;
+
+    &::placeholder {
+      color: #1d9bf0;
+    }
+  }
+`;
+
 export {
   Background,
   LoginContainer,
@@ -343,4 +365,5 @@ export {
   PasswordInput,
   NextButton,
   ErrorContainer,
+  UserNameInput,
 };

@@ -19,19 +19,10 @@ import {
   SignInWithGoogle,
   SignInSeparator,
   SignInHr,
+  EmailLoginContainer,
 } from "./StyledComponents";
 
 import { useNavigate } from "react-router-dom";
-
-const EmailLoginContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 30%;
-  width: 40%;
-  row-gap: 10%;
-`;
 
 const LoginButton = styled.button`
   border: none;

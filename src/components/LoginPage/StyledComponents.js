@@ -409,6 +409,16 @@ const SignInHr = styled.hr`
   margin: 0;
 `;
 
+const EmailLoginContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30%;
+  width: 40%;
+  row-gap: 10%;
+`;
+
 export {
   Background,
   LoginContainer,
@@ -444,4 +454,5 @@ export {
   SignInWithGoogle,
   SignInSeparator,
   SignInHr,
+  EmailLoginContainer,
 };

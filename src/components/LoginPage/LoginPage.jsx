@@ -9,16 +9,10 @@ import {
   SmallTwitterLogoContainer,
   Header1,
   Header2,
+  StyledSvg,
 } from "./StyledComponents";
 
 import { signInAsGuest } from "../../firebaseFunctions/firebaseAuth";
-
-const StyledSvg = styled.svg`
-  position: absolute;
-  height: 40%;
-  width: 50%;
-  left: 0%;
-`;
 
 const SignUp = styled(Link)`
   display: flex;

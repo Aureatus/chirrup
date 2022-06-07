@@ -64,6 +64,13 @@ const Header2 = styled.h2`
   font-weight: 700;
 `;
 
+const StyledSvg = styled.svg`
+  position: absolute;
+  height: 40%;
+  width: 50%;
+  left: 0%;
+`;
+
 export {
   Background,
   LoginContainer,
@@ -74,4 +81,5 @@ export {
   SmallTwitterLogoContainer,
   Header1,
   Header2,
+  StyledSvg,
 };

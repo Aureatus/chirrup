@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
+// General Components
+
 const Background = styled.div`
   height: 100%;
   width: 100%;
@@ -8,13 +10,6 @@ const Background = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-`;
-
-const LoginContainer = styled.div`
-  height: 100%;
-  width: 100%;
-  display: grid;
-  grid-template: 95% 5% / 1fr 1fr;
 `;
 
 const Container = styled.div`
@@ -29,6 +24,95 @@ const Container = styled.div`
   row-gap: 1%;
 
   border-radius: 15px;
+`;
+
+const SmallTwitterLogoContainer = styled.div`
+  width: 6%;
+`;
+
+const Header2 = styled.h2`
+  font-size: 31px;
+  font-weight: 700;
+`;
+
+const EmailInput = styled.input`
+  box-sizing: border-box;
+  border: 1px solid #cfd9de;
+  border-radius: 5px;
+  width: 100%;
+  padding: 6% 0px;
+  text-align: center;
+  font-family: Libre Franklin;
+  font-size: 17px;
+
+  &:focus-visible {
+    outline: none;
+    border: 1px solid #1d9bf0;
+
+    &::placeholder {
+      color: #1d9bf0;
+    }
+  }
+`;
+
+const PasswordInput = styled.input`
+  box-sizing: border-box;
+  border: 1px solid #cfd9de;
+  border-radius: 5px;
+  width: 100%;
+  padding: 6% 0px;
+  text-align: center;
+  font-family: Libre Franklin;
+  font-size: 17px;
+
+  &:focus-visible {
+    outline: none;
+    border: 1px solid #1d9bf0;
+
+    &::placeholder {
+      color: #1d9bf0;
+    }
+  }
+`;
+
+const ErrorContainer = styled.div`
+  height: auto;
+  width: 100%;
+
+  color: crimson;
+
+  text-align: center;
+`;
+
+const UserNameInput = styled.input`
+  box-sizing: border-box;
+  border: 1px solid #cfd9de;
+  border-radius: 5px;
+  width: 50%;
+  height: 8%;
+  padding: 6% 0px;
+  text-align: center;
+  font-family: Libre Franklin;
+  font-size: 17px;
+  margin-top: 5%;
+
+  &:focus-visible {
+    outline: none;
+    border: 1px solid #1d9bf0;
+
+    &::placeholder {
+      color: #1d9bf0;
+    }
+  }
+`;
+
+// LoginPage
+
+const LoginContainer = styled.div`
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template: 95% 5% / 1fr 1fr;
 `;
 
 const LeftSection = styled.section`
@@ -51,18 +135,9 @@ const StyledBackgroundImg = styled.img`
   object-fit: cover;
 `;
 
-const SmallTwitterLogoContainer = styled.div`
-  width: 6%;
-`;
-
 const Header1 = styled.h1`
   font-size: 64px;
   font-weight: 800;
-`;
-
-const Header2 = styled.h2`
-  font-size: 31px;
-  font-weight: 700;
 `;
 
 const StyledSvg = styled.svg`
@@ -200,6 +275,8 @@ const StyledNavSpan = styled.span`
   padding: 0;
 `;
 
+// SignUpPage
+
 const SignUpWithGoogle = styled.button`
   display: flex;
   width: max-content;
@@ -248,46 +325,6 @@ const InputContainer = styled.div`
   row-gap: 10%;
 `;
 
-const EmailInput = styled.input`
-  box-sizing: border-box;
-  border: 1px solid #cfd9de;
-  border-radius: 5px;
-  width: 100%;
-  padding: 6% 0px;
-  text-align: center;
-  font-family: Libre Franklin;
-  font-size: 17px;
-
-  &:focus-visible {
-    outline: none;
-    border: 1px solid #1d9bf0;
-
-    &::placeholder {
-      color: #1d9bf0;
-    }
-  }
-`;
-
-const PasswordInput = styled.input`
-  box-sizing: border-box;
-  border: 1px solid #cfd9de;
-  border-radius: 5px;
-  width: 100%;
-  padding: 6% 0px;
-  text-align: center;
-  font-family: Libre Franklin;
-  font-size: 17px;
-
-  &:focus-visible {
-    outline: none;
-    border: 1px solid #1d9bf0;
-
-    &::placeholder {
-      color: #1d9bf0;
-    }
-  }
-`;
-
 const NextButton = styled.button`
   display: flex;
   justify-content: center;
@@ -305,36 +342,6 @@ const NextButton = styled.button`
   cursor: pointer;
 `;
 
-const ErrorContainer = styled.div`
-  height: auto;
-  width: 100%;
-
-  color: crimson;
-
-  text-align: center;
-`;
-
-const UserNameInput = styled.input`
-  box-sizing: border-box;
-  border: 1px solid #cfd9de;
-  border-radius: 5px;
-  width: 50%;
-  height: 8%;
-  padding: 6% 0px;
-  text-align: center;
-  font-family: Libre Franklin;
-  font-size: 17px;
-  margin-top: 5%;
-
-  &:focus-visible {
-    outline: none;
-    border: 1px solid #1d9bf0;
-
-    &::placeholder {
-      color: #1d9bf0;
-    }
-  }
-`;
 const SignUpButton = styled.button`
   display: flex;
   justify-content: center;
@@ -353,23 +360,7 @@ const SignUpButton = styled.button`
   cursor: pointer;
 `;
 
-const SetNameButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 8%;
-  width: 50%;
-  border: none;
-  border-radius: 9999px;
-  background-color: #1d9bf0;
-  color: white;
-  font-family: Libre Franklin;
-  font-size: 15px;
-  font-weight: 700;
-  margin-top: 5%;
-
-  cursor: pointer;
-`;
+// SignInPage
 
 const SignInWithGoogle = styled.button`
   display: flex;
@@ -428,6 +419,26 @@ const LoginButton = styled.button`
   font-size: 15px;
   font-weight: 700;
   padding: 4% 40%;
+  cursor: pointer;
+`;
+
+// ChooseUserName
+
+const SetNameButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8%;
+  width: 50%;
+  border: none;
+  border-radius: 9999px;
+  background-color: #1d9bf0;
+  color: white;
+  font-family: Libre Franklin;
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 5%;
+
   cursor: pointer;
 `;
 

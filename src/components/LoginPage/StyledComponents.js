@@ -231,6 +231,13 @@ const SignUpSeparator = styled.div`
   width: 100%;
 `;
 
+const SignUpHr = styled.hr`
+  border: none;
+  border-top: 1px solid rgb(239, 243, 244);
+  width: 16%;
+  margin: 0;
+`;
+
 export {
   Background,
   LoginContainer,
@@ -254,4 +261,5 @@ export {
   StyledNavSpan,
   SignUpWithGoogle,
   SignUpSeparator,
+  SignUpHr,
 };

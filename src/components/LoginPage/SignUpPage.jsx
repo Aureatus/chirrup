@@ -9,6 +9,7 @@ import {
   Header2,
   SignUpWithGoogle,
   SignUpSeparator,
+  SignUpHr,
 } from "./StyledComponents";
 
 import {
@@ -20,13 +21,6 @@ import {
   fetchUserName,
   createUserName,
 } from "../../firebaseFunctions/firebaseStore";
-
-const SignUpHr = styled.hr`
-  border: none;
-  border-top: 1px solid rgb(239, 243, 244);
-  width: 16%;
-  margin: 0;
-`;
 
 const EmailLoginContainer = styled.div`
   display: flex;

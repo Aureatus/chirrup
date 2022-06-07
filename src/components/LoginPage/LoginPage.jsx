@@ -21,7 +21,7 @@ import {
 
 import { signInAsGuest } from "../../firebaseFunctions/firebaseAuth";
 
-const StyledButton1 = styled.button`
+const StyledNavButton = styled.button`
   border: none;
   background-color: white;
   color: #536471;
@@ -94,23 +94,23 @@ function LoginPage({ setUser }) {
       </RightSection>
       <Footer>
         <StyledNav>
-          <StyledButton1>About</StyledButton1>
-          <StyledButton1>Help Center</StyledButton1>
-          <StyledButton1>Terms Of Service</StyledButton1>
-          <StyledButton1>Privacy Policy</StyledButton1>
-          <StyledButton1>Cookie Policy</StyledButton1>
-          <StyledButton1>Accessibility</StyledButton1>
-          <StyledButton1>Ads Info</StyledButton1>
-          <StyledButton1>Blog</StyledButton1>
-          <StyledButton1>Status</StyledButton1>
-          <StyledButton1>Careers</StyledButton1>
-          <StyledButton1>Brand Resources</StyledButton1>
-          <StyledButton1>Advertising</StyledButton1>
-          <StyledButton1>Marketing</StyledButton1>
-          <StyledButton1>Twitter for Business</StyledButton1>
-          <StyledButton1>Developers</StyledButton1>
-          <StyledButton1>Directory</StyledButton1>
-          <StyledButton1>Settings</StyledButton1>
+          <StyledNavButton>About</StyledNavButton>
+          <StyledNavButton>Help Center</StyledNavButton>
+          <StyledNavButton>Terms Of Service</StyledNavButton>
+          <StyledNavButton>Privacy Policy</StyledNavButton>
+          <StyledNavButton>Cookie Policy</StyledNavButton>
+          <StyledNavButton>Accessibility</StyledNavButton>
+          <StyledNavButton>Ads Info</StyledNavButton>
+          <StyledNavButton>Blog</StyledNavButton>
+          <StyledNavButton>Status</StyledNavButton>
+          <StyledNavButton>Careers</StyledNavButton>
+          <StyledNavButton>Brand Resources</StyledNavButton>
+          <StyledNavButton>Advertising</StyledNavButton>
+          <StyledNavButton>Marketing</StyledNavButton>
+          <StyledNavButton>Twitter for Business</StyledNavButton>
+          <StyledNavButton>Developers</StyledNavButton>
+          <StyledNavButton>Directory</StyledNavButton>
+          <StyledNavButton>Settings</StyledNavButton>
           <StyledSpan>© 2022 Twitter, Inc.</StyledSpan>
         </StyledNav>
       </Footer>

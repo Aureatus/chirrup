@@ -13,6 +13,7 @@ import {
   InputContainer,
   EmailInput,
   PasswordInput,
+  NextButton,
 } from "./StyledComponents";
 
 import {
@@ -24,23 +25,6 @@ import {
   fetchUserName,
   createUserName,
 } from "../../firebaseFunctions/firebaseStore";
-
-const NextButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 15%;
-  width: 100%;
-  border: none;
-  border-radius: 9999px;
-  background-color: black;
-  color: white;
-  font-family: Libre Franklin;
-  font-size: 15px;
-  font-weight: 700;
-
-  cursor: pointer;
-`;
 
 const ErrorContainer = styled.div`
   height: auto;

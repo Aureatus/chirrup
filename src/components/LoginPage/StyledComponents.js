@@ -288,6 +288,23 @@ const PasswordInput = styled.input`
   }
 `;
 
+const NextButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 15%;
+  width: 100%;
+  border: none;
+  border-radius: 9999px;
+  background-color: black;
+  color: white;
+  font-family: Libre Franklin;
+  font-size: 15px;
+  font-weight: 700;
+
+  cursor: pointer;
+`;
+
 export {
   Background,
   LoginContainer,
@@ -315,4 +332,5 @@ export {
   InputContainer,
   EmailInput,
   PasswordInput,
+  NextButton,
 };

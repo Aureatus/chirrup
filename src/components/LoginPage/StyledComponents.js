@@ -200,6 +200,27 @@ const StyledNavSpan = styled.span`
   padding: 0;
 `;
 
+const SignUpWithGoogle = styled.button`
+  display: flex;
+  width: max-content;
+  align-items: center;
+  border: solid 1px rgb(218, 220, 224);
+  border-radius: 20px;
+  background-color: white;
+  box-sizing: border-box;
+  padding: 0.7% 7%;
+  column-gap: 8px;
+  cursor: pointer;
+  font-family: Open Sans;
+  font-size: 14px;
+  font-weight: 500;
+  color: #3c4043;
+
+  &:hover {
+    background-color: #f7f9f9;
+  }
+`;
+
 export {
   Background,
   LoginContainer,
@@ -221,4 +242,5 @@ export {
   StyledNav,
   StyledNavButton,
   StyledNavSpan,
+  SignUpWithGoogle,
 };

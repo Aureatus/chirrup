@@ -18,17 +18,10 @@ import {
   Footer,
   StyledNav,
   StyledNavButton,
+  StyledNavSpan,
 } from "./StyledComponents";
 
 import { signInAsGuest } from "../../firebaseFunctions/firebaseAuth";
-
-const StyledNavSpan = styled.span`
-  border: none;
-  background-color: white;
-  color: #536471;
-  font-size: 13px;
-  padding: 0;
-`;
 
 function LoginPage({ setUser }) {
   return (

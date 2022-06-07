@@ -192,6 +192,14 @@ const StyledNavButton = styled.button`
   }
 `;
 
+const StyledNavSpan = styled.span`
+  border: none;
+  background-color: white;
+  color: #536471;
+  font-size: 13px;
+  padding: 0;
+`;
+
 export {
   Background,
   LoginContainer,
@@ -212,4 +220,5 @@ export {
   Footer,
   StyledNav,
   StyledNavButton,
+  StyledNavSpan,
 };

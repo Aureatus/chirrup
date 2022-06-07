@@ -419,6 +419,18 @@ const EmailLoginContainer = styled.div`
   row-gap: 10%;
 `;
 
+const LoginButton = styled.button`
+  border: none;
+  border-radius: 9999px;
+  background-color: black;
+  color: white;
+  font-family: Libre Franklin;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 4% 40%;
+  cursor: pointer;
+`;
+
 export {
   Background,
   LoginContainer,
@@ -455,4 +467,5 @@ export {
   SignInSeparator,
   SignInHr,
   EmailLoginContainer,
+  LoginButton,
 };

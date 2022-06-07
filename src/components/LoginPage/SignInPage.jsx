@@ -20,21 +20,10 @@ import {
   SignInSeparator,
   SignInHr,
   EmailLoginContainer,
+  LoginButton,
 } from "./StyledComponents";
 
 import { useNavigate } from "react-router-dom";
-
-const LoginButton = styled.button`
-  border: none;
-  border-radius: 9999px;
-  background-color: black;
-  color: white;
-  font-family: Libre Franklin;
-  font-size: 15px;
-  font-weight: 700;
-  padding: 4% 40%;
-  cursor: pointer;
-`;
 
 const SignInPage = ({ setUser, setUserName }) => {
   const [email, setEmail] = useState("");

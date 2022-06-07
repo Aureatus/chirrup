@@ -238,7 +238,7 @@ const SignUpHr = styled.hr`
   margin: 0;
 `;
 
-const EmailLoginContainer = styled.div`
+const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -272,5 +272,5 @@ export {
   SignUpWithGoogle,
   SignUpSeparator,
   SignUpHr,
-  EmailLoginContainer,
+  InputContainer,
 };

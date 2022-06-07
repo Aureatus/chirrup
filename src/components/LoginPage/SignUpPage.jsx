@@ -10,7 +10,7 @@ import {
   SignUpWithGoogle,
   SignUpSeparator,
   SignUpHr,
-  EmailLoginContainer,
+  InputContainer,
 } from "./StyledComponents";
 
 import {
@@ -237,7 +237,7 @@ const SignUpPage = ({ setUser, setUserName }) => {
           <span>or</span>
           <SignUpHr />
         </SignUpSeparator>
-        <EmailLoginContainer>
+        <InputContainer>
           <EmailInput
             type="email"
             placeholder="Email address"
@@ -276,7 +276,7 @@ const SignUpPage = ({ setUser, setUserName }) => {
           >
             Next
           </NextButton>
-        </EmailLoginContainer>
+        </InputContainer>
         <ErrorContainer>{errorMessage}</ErrorContainer>
       </Container>
     </Background>

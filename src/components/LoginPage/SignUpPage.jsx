@@ -10,6 +10,7 @@ import {
   SignUpWithGoogle,
   SignUpSeparator,
   SignUpHr,
+  EmailLoginContainer,
 } from "./StyledComponents";
 
 import {
@@ -21,16 +22,6 @@ import {
   fetchUserName,
   createUserName,
 } from "../../firebaseFunctions/firebaseStore";
-
-const EmailLoginContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 30%;
-  width: 40%;
-  row-gap: 10%;
-`;
 
 const EmailInput = styled.input`
   box-sizing: border-box;

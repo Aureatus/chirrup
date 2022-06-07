@@ -14,7 +14,7 @@ import {
 
 import { signInAsGuest } from "../../firebaseFunctions/firebaseAuth";
 
-const SignUp = styled(Link)`
+const SignUpLink = styled(Link)`
   display: flex;
   width: 34%;
   justify-content: center;
@@ -167,9 +167,9 @@ function LoginPage({ setUser }) {
         </SmallTwitterLogoContainer>
         <Header1>Happening now</Header1>
         <Header2>Join Twitter today.</Header2>
-        <SignUp to={"/sign-up"}>
+        <SignUpLink to={"/sign-up"}>
           <div>Sign up</div>
-        </SignUp>
+        </SignUpLink>
         <TermsAndConditions>
           By signing up, you agree to the
           <TermsLink>Terms of Service</TermsLink>

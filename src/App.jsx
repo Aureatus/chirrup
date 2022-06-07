@@ -19,7 +19,7 @@ function App() {
     theme === "light" ? setTheme("dark") : setTheme("light");
   };
 
-  if (!user || !userName) {
+  if (!user || (!userName && user.isAnonymous !== true)) {
     return (
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
         <GlobalStyles />

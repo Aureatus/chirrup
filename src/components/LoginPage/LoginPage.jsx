@@ -15,16 +15,10 @@ import {
   SignInSection,
   SignInLink,
   GuestSignInButton,
+  Footer,
 } from "./StyledComponents";
 
 import { signInAsGuest } from "../../firebaseFunctions/firebaseAuth";
-
-const Footer = styled.footer`
-  grid-area: 2 / 1 / 3 / 3;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`;
 
 const StyledNav = styled.nav`
   color: #536471;

@@ -164,6 +164,13 @@ const GuestSignInButton = styled.button`
   }
 `;
 
+const Footer = styled.footer`
+  grid-area: 2 / 1 / 3 / 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+`;
+
 export {
   Background,
   LoginContainer,
@@ -181,4 +188,5 @@ export {
   SignInSection,
   SignInLink,
   GuestSignInButton,
+  Footer,
 };

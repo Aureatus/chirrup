@@ -10,28 +10,11 @@ import {
   Header2,
   ErrorContainer,
   UserNameInput,
+  SetNameButton,
 } from "./StyledComponents";
 
 import { getCurrentUser } from "../../firebaseFunctions/firebaseAuth";
 import { createUserName } from "../../firebaseFunctions/firebaseStore";
-
-const SetNameButton = styled.button`
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 8%;
-  width: 50%;
-  border: none;
-  border-radius: 9999px;
-  background-color: #1d9bf0;
-  color: white;
-  font-family: Libre Franklin;
-  font-size: 15px;
-  font-weight: 700;
-  margin-top: 5%;
-
-  cursor: pointer;
-`;
 
 const ChooseUserName = ({ setUser, setUserName }) => {
   const [errorMessage, setErrorMessage] = useState("");

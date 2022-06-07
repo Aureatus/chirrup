@@ -22,7 +22,7 @@ import {
 
 import { signInAsGuest } from "../../firebaseFunctions/firebaseAuth";
 
-const StyledSpan = styled.span`
+const StyledNavSpan = styled.span`
   border: none;
   background-color: white;
   color: #536471;
@@ -98,7 +98,7 @@ function LoginPage({ setUser }) {
           <StyledNavButton>Developers</StyledNavButton>
           <StyledNavButton>Directory</StyledNavButton>
           <StyledNavButton>Settings</StyledNavButton>
-          <StyledSpan>© 2022 Twitter, Inc.</StyledSpan>
+          <StyledNavSpan>© 2022 Twitter, Inc.</StyledNavSpan>
         </StyledNav>
       </Footer>
     </LoginContainer>

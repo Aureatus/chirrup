@@ -335,6 +335,23 @@ const UserNameInput = styled.input`
     }
   }
 `;
+const SignUpButton = styled.button`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8%;
+  width: 50%;
+  border: none;
+  border-radius: 9999px;
+  background-color: #1d9bf0;
+  color: white;
+  font-family: Libre Franklin;
+  font-size: 15px;
+  font-weight: 700;
+  margin-top: 5%;
+
+  cursor: pointer;
+`;
 
 export {
   Background,
@@ -366,4 +383,5 @@ export {
   NextButton,
   ErrorContainer,
   UserNameInput,
+  SignUpButton,
 };

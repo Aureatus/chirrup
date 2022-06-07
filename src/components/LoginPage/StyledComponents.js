@@ -35,6 +35,16 @@ const Header2 = styled.h2`
   font-weight: 700;
 `;
 
+const InputContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 30%;
+  width: 40%;
+  row-gap: 10%;
+`;
+
 const EmailInput = styled.input`
   box-sizing: border-box;
   border: 1px solid #cfd9de;
@@ -315,16 +325,6 @@ const SignUpWithGoogle = styled.button`
   }
 `;
 
-const InputContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 30%;
-  width: 40%;
-  row-gap: 10%;
-`;
-
 const NextButton = styled.button`
   display: flex;
   justify-content: center;
@@ -381,16 +381,6 @@ const SignInWithGoogle = styled.button`
   &:hover {
     background-color: #f7f9f9;
   }
-`;
-
-const EmailLoginContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 30%;
-  width: 40%;
-  row-gap: 10%;
 `;
 
 const LoginButton = styled.button`
@@ -456,7 +446,6 @@ export {
   SignUpButton,
   SetNameButton,
   SignInWithGoogle,
-  EmailLoginContainer,
   LoginButton,
   StyledSeparator,
   StyledHr,

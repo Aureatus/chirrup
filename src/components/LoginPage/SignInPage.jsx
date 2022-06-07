@@ -17,7 +17,7 @@ import {
   SignInWithGoogle,
   StyledSeparator,
   StyledHr,
-  EmailLoginContainer,
+  InputContainer,
   LoginButton,
 } from "./StyledComponents";
 
@@ -79,7 +79,7 @@ const SignInPage = ({ setUser, setUserName }) => {
           <span>or</span>
           <StyledHr />
         </StyledSeparator>
-        <EmailLoginContainer>
+        <InputContainer>
           <EmailInput
             type="email"
             placeholder="Email address"
@@ -116,7 +116,7 @@ const SignInPage = ({ setUser, setUserName }) => {
           >
             Log in
           </LoginButton>
-        </EmailLoginContainer>
+        </InputContainer>
         <ErrorContainer>{errorMessage}</ErrorContainer>
       </Container>
     </Background>

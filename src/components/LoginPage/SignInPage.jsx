@@ -6,8 +6,6 @@ import {
 
 import { fetchUserName } from "../../firebaseFunctions/firebaseStore";
 
-import styled from "styled-components";
-
 import {
   Background,
   Container,

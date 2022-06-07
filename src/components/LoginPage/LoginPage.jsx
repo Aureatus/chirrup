@@ -12,22 +12,10 @@ import {
   StyledSvg,
   SignUpLink,
   TermsAndConditions,
+  TermsLink,
 } from "./StyledComponents";
 
 import { signInAsGuest } from "../../firebaseFunctions/firebaseAuth";
-
-const TermsLink = styled.button`
-  font-size: 11px;
-  border: none;
-  background-color: white;
-  color: #1d9bf0;
-  padding: 0px 2px;
-  cursor: pointer;
-
-  &:hover {
-    text-decoration: underline;
-  }
-`;
 
 const SignInSection = styled.section`
   margin-top: 40px;

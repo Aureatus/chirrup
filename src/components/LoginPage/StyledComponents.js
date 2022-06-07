@@ -101,6 +101,19 @@ const TermsAndConditions = styled.div`
   max-width: 290px;
 `;
 
+const TermsLink = styled.button`
+  font-size: 11px;
+  border: none;
+  background-color: white;
+  color: #1d9bf0;
+  padding: 0px 2px;
+  cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
+`;
+
 export {
   Background,
   LoginContainer,
@@ -114,4 +127,5 @@ export {
   StyledSvg,
   SignUpLink,
   TermsAndConditions,
+  TermsLink,
 };

@@ -11,6 +11,7 @@ import {
   SignUpSeparator,
   SignUpHr,
   InputContainer,
+  EmailInput,
 } from "./StyledComponents";
 
 import {
@@ -22,26 +23,6 @@ import {
   fetchUserName,
   createUserName,
 } from "../../firebaseFunctions/firebaseStore";
-
-const EmailInput = styled.input`
-  box-sizing: border-box;
-  border: 1px solid #cfd9de;
-  border-radius: 5px;
-  width: 100%;
-  padding: 6% 0px;
-  text-align: center;
-  font-family: Libre Franklin;
-  font-size: 17px;
-
-  &:focus-visible {
-    outline: none;
-    border: 1px solid #1d9bf0;
-
-    &::placeholder {
-      color: #1d9bf0;
-    }
-  }
-`;
 
 const PasswordInput = styled.input`
   box-sizing: border-box;

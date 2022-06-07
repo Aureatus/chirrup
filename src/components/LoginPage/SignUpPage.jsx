@@ -7,8 +7,8 @@ import {
   SmallTwitterLogoContainer,
   Header2,
   SignUpWithGoogle,
-  SignUpSeparator,
-  SignUpHr,
+  StyledSeparator,
+  StyledHr,
   InputContainer,
   EmailInput,
   PasswordInput,
@@ -131,11 +131,11 @@ const SignUpPage = ({ setUser, setUserName }) => {
           </svg>
           <div>Sign up with Google</div>
         </SignUpWithGoogle>
-        <SignUpSeparator>
-          <SignUpHr />
+        <StyledSeparator>
+          <StyledHr />
           <span>or</span>
-          <SignUpHr />
-        </SignUpSeparator>
+          <StyledHr />
+        </StyledSeparator>
         <InputContainer>
           <EmailInput
             type="email"

@@ -106,6 +106,23 @@ const UserNameInput = styled.input`
   }
 `;
 
+const StyledSeparator = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 8px;
+  column-gap: 2%;
+  width: 100%;
+`;
+
+const StyledHr = styled.hr`
+  border: none;
+  border-top: 1px solid rgb(239, 243, 244);
+  width: 16%;
+  margin: 0;
+`;
+
 // LoginPage
 
 const LoginContainer = styled.div`
@@ -298,23 +315,6 @@ const SignUpWithGoogle = styled.button`
   }
 `;
 
-const SignUpSeparator = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin: 8px;
-  column-gap: 2%;
-  width: 100%;
-`;
-
-const SignUpHr = styled.hr`
-  border: none;
-  border-top: 1px solid rgb(239, 243, 244);
-  width: 16%;
-  margin: 0;
-`;
-
 const InputContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -383,23 +383,6 @@ const SignInWithGoogle = styled.button`
   }
 `;
 
-const SignInSeparator = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin: 8px;
-  column-gap: 2%;
-  width: 100%;
-`;
-
-const SignInHr = styled.hr`
-  border: none;
-  border-top: 1px solid rgb(239, 243, 244);
-  width: 16%;
-  margin: 0;
-`;
-
 const EmailLoginContainer = styled.div`
   display: flex;
   flex-direction: column;
@@ -464,8 +447,6 @@ export {
   StyledNavButton,
   StyledNavSpan,
   SignUpWithGoogle,
-  SignUpSeparator,
-  SignUpHr,
   InputContainer,
   EmailInput,
   PasswordInput,
@@ -475,8 +456,8 @@ export {
   SignUpButton,
   SetNameButton,
   SignInWithGoogle,
-  SignInSeparator,
-  SignInHr,
   EmailLoginContainer,
   LoginButton,
+  StyledSeparator,
+  StyledHr,
 };

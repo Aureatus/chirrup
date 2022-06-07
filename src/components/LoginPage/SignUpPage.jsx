@@ -73,10 +73,7 @@ const SignUpPage = ({ setUser, setUserName }) => {
                     navigate("/");
                   }
                 } catch (error) {
-                  await createUserName(user.uid, inputUserName);
-                  setUser(user);
-                  setUserName(inputUserName);
-                  navigate("/");
+                  setErrorMessage(error.message);
                 }
               }
             }}

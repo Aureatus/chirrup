@@ -13,16 +13,10 @@ import {
   SignUpLink,
   TermsAndConditions,
   TermsLink,
+  SignInSection,
 } from "./StyledComponents";
 
 import { signInAsGuest } from "../../firebaseFunctions/firebaseAuth";
-
-const SignInSection = styled.section`
-  margin-top: 40px;
-  font-size: 17px;
-  font-weight: 700;
-  margin-bottom: 20px;
-`;
 
 const SignInButton = styled(Link)`
   display: flex;

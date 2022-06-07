@@ -114,6 +114,13 @@ const TermsLink = styled.button`
   }
 `;
 
+const SignInSection = styled.section`
+  margin-top: 40px;
+  font-size: 17px;
+  font-weight: 700;
+  margin-bottom: 20px;
+`;
+
 export {
   Background,
   LoginContainer,
@@ -128,4 +135,5 @@ export {
   SignUpLink,
   TermsAndConditions,
   TermsLink,
+  SignInSection,
 };

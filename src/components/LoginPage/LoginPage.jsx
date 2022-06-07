@@ -11,16 +11,10 @@ import {
   Header2,
   StyledSvg,
   SignUpLink,
+  TermsAndConditions,
 } from "./StyledComponents";
 
 import { signInAsGuest } from "../../firebaseFunctions/firebaseAuth";
-
-const TermsAndConditions = styled.div`
-  font-size: 11px;
-  color: rgb(83, 100, 113);
-  margin-bottom: 20px;
-  max-width: 290px;
-`;
 
 const TermsLink = styled.button`
   font-size: 11px;

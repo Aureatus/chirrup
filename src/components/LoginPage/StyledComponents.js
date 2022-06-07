@@ -94,6 +94,13 @@ const SignUpLink = styled(Link)`
   }
 `;
 
+const TermsAndConditions = styled.div`
+  font-size: 11px;
+  color: rgb(83, 100, 113);
+  margin-bottom: 20px;
+  max-width: 290px;
+`;
+
 export {
   Background,
   LoginContainer,
@@ -106,4 +113,5 @@ export {
   Header2,
   StyledSvg,
   SignUpLink,
+  TermsAndConditions,
 };

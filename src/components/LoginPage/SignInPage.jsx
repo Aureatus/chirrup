@@ -17,19 +17,10 @@ import {
   PasswordInput,
   ErrorContainer,
   SignInWithGoogle,
+  SignInSeparator,
 } from "./StyledComponents";
 
 import { useNavigate } from "react-router-dom";
-
-const SignInSeparator = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin: 8px;
-  column-gap: 2%;
-  width: 100%;
-`;
 
 const SignInHr = styled.hr`
   border: none;

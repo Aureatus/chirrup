@@ -392,6 +392,16 @@ const SignInWithGoogle = styled.button`
   }
 `;
 
+const SignInSeparator = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 8px;
+  column-gap: 2%;
+  width: 100%;
+`;
+
 export {
   Background,
   LoginContainer,
@@ -425,4 +435,5 @@ export {
   SignUpButton,
   SetNameButton,
   SignInWithGoogle,
+  SignInSeparator,
 };

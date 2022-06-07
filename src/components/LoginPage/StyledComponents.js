@@ -171,6 +171,13 @@ const Footer = styled.footer`
   align-items: center;
 `;
 
+const StyledNav = styled.nav`
+  color: #536471;
+  display: flex;
+  justify-content: center;
+  column-gap: 15px;
+`;
+
 export {
   Background,
   LoginContainer,
@@ -189,4 +196,5 @@ export {
   SignInLink,
   GuestSignInButton,
   Footer,
+  StyledNav,
 };

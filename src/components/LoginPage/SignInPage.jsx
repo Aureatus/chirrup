@@ -14,6 +14,7 @@ import {
   SmallTwitterLogoContainer,
   Header2,
   EmailInput,
+  PasswordInput,
 } from "./StyledComponents";
 
 import { useNavigate } from "react-router-dom";
@@ -64,26 +65,6 @@ const EmailLoginContainer = styled.div`
   height: 30%;
   width: 40%;
   row-gap: 10%;
-`;
-
-const PasswordInput = styled.input`
-  box-sizing: border-box;
-  border: 1px solid #cfd9de;
-  border-radius: 5px;
-  width: 100%;
-  padding: 6% 0px;
-  text-align: center;
-  font-family: Libre Franklin;
-  font-size: 17px;
-
-  &:focus-visible {
-    outline: none;
-    border: 1px solid #1d9bf0;
-
-    &::placeholder {
-      color: #1d9bf0;
-    }
-  }
 `;
 
 const LoginButton = styled.button`

@@ -221,6 +221,16 @@ const SignUpWithGoogle = styled.button`
   }
 `;
 
+const SignUpSeparator = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 8px;
+  column-gap: 2%;
+  width: 100%;
+`;
+
 export {
   Background,
   LoginContainer,
@@ -243,4 +253,5 @@ export {
   StyledNavButton,
   StyledNavSpan,
   SignUpWithGoogle,
+  SignUpSeparator,
 };

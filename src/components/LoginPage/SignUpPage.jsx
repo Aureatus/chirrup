@@ -8,6 +8,7 @@ import {
   SmallTwitterLogoContainer,
   Header2,
   SignUpWithGoogle,
+  SignUpSeparator,
 } from "./StyledComponents";
 
 import {
@@ -19,16 +20,6 @@ import {
   fetchUserName,
   createUserName,
 } from "../../firebaseFunctions/firebaseStore";
-
-const SignUpSeparator = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  margin: 8px;
-  column-gap: 2%;
-  width: 100%;
-`;
 
 const SignUpHr = styled.hr`
   border: none;

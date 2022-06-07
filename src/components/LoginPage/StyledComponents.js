@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const Background = styled.div`
   height: 100%;
@@ -71,6 +72,28 @@ const StyledSvg = styled.svg`
   left: 0%;
 `;
 
+const SignUpLink = styled(Link)`
+  display: flex;
+  width: 34%;
+  justify-content: center;
+  align-items: center;
+  background-color: #1d9bf0;
+  border: none;
+  border-radius: 20px;
+  box-sizing: border-box;
+  padding: 1% 2%;
+  cursor: pointer;
+  margin-bottom: 8px;
+  font-family: Libre Franklin;
+  font-size: 20px;
+  font-weight: 700;
+  color: white;
+
+  &:hover {
+    background-color: #1d8dd8;
+  }
+`;
+
 export {
   Background,
   LoginContainer,
@@ -82,4 +105,5 @@ export {
   Header1,
   Header2,
   StyledSvg,
+  SignUpLink,
 };

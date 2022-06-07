@@ -10,31 +10,10 @@ import {
   Header1,
   Header2,
   StyledSvg,
+  SignUpLink,
 } from "./StyledComponents";
 
 import { signInAsGuest } from "../../firebaseFunctions/firebaseAuth";
-
-const SignUpLink = styled(Link)`
-  display: flex;
-  width: 34%;
-  justify-content: center;
-  align-items: center;
-  background-color: #1d9bf0;
-  border: none;
-  border-radius: 20px;
-  box-sizing: border-box;
-  padding: 1% 2%;
-  cursor: pointer;
-  margin-bottom: 8px;
-  font-family: Libre Franklin;
-  font-size: 20px;
-  font-weight: 700;
-  color: white;
-
-  &:hover {
-    background-color: #1d8dd8;
-  }
-`;
 
 const TermsAndConditions = styled.div`
   font-size: 11px;

@@ -14,30 +14,11 @@ import {
   TermsLink,
   SignInSection,
   SignInLink,
+  GuestSignInButton,
 } from "./StyledComponents";
 
 import { signInAsGuest } from "../../firebaseFunctions/firebaseAuth";
 
-const GuestSignInButton = styled.button`
-  display: flex;
-  width: max-content;
-  align-items: center;
-  background-color: white;
-  border: solid 1px rgb(218, 220, 224);
-  border-radius: 20px;
-  box-sizing: border-box;
-  padding: 1.2% 11.3%;
-  cursor: pointer;
-  margin-top: 20px;
-  margin-bottom: 8px;
-  font-family: Libre Franklin;
-  font-size: 15px;
-  font-weight: 700;
-
-  &:hover {
-    background-color: #83aac460;
-  }
-`;
 const Footer = styled.footer`
   grid-area: 2 / 1 / 3 / 3;
   display: flex;

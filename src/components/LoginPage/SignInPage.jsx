@@ -18,16 +18,10 @@ import {
   ErrorContainer,
   SignInWithGoogle,
   SignInSeparator,
+  SignInHr,
 } from "./StyledComponents";
 
 import { useNavigate } from "react-router-dom";
-
-const SignInHr = styled.hr`
-  border: none;
-  border-top: 1px solid rgb(239, 243, 244);
-  width: 16%;
-  margin: 0;
-`;
 
 const EmailLoginContainer = styled.div`
   display: flex;

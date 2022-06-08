@@ -20,6 +20,30 @@ const ChooseUserName = ({ setUser, setUserName }) => {
 
   const navigate = useNavigate();
 
+  const setName = async () => {
+    if (!inputUserName) {
+      setErrorMessage("User name is required.");
+      return;
+    } else {
+      const user = getCurrentUser();
+      try {
+        if (user.providerData[0].providerId === "password") {
+          await createUserName(user.uid, inputUserName);
+          setUser(user);
+          setUserName(inputUserName);
+          navigate("/");
+        } else if (user.providerData[0].providerId === "google.com") {
+          await createUserName(user.uid, inputUserName);
+          setUser(user);
+          setUserName(inputUserName);
+          navigate("/");
+        }
+      } catch (error) {
+        setErrorMessage(error.message);
+      }
+    }
+  };
+
   return (
     <Background>
       <Container>
@@ -35,33 +59,7 @@ const ChooseUserName = ({ setUser, setUserName }) => {
           }}
         />
         <ErrorContainer>{errorMessage}</ErrorContainer>
-        <SetNameButton
-          onClick={async () => {
-            if (!inputUserName) {
-              setErrorMessage("User name is required.");
-              return;
-            } else {
-              const user = getCurrentUser();
-              try {
-                if (user.providerData[0].providerId === "password") {
-                  await createUserName(user.uid, inputUserName);
-                  setUser(user);
-                  setUserName(inputUserName);
-                  navigate("/");
-                } else if (user.providerData[0].providerId === "google.com") {
-                  await createUserName(user.uid, inputUserName);
-                  setUser(user);
-                  setUserName(inputUserName);
-                  navigate("/");
-                }
-              } catch (error) {
-                setErrorMessage(error.message);
-              }
-            }
-          }}
-        >
-          Set name
-        </SetNameButton>
+        <SetNameButton onClick={() => setName()}>Set name</SetNameButton>
       </Container>
     </Background>
   );

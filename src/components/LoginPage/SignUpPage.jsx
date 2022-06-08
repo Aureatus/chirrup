@@ -16,10 +16,9 @@ import {
   ErrorContainer,
 } from "./StyledComponents";
 
-import {
-  signInWithGoogle,
-  signUpWithEmailAndPassword,
-} from "../../firebaseFunctions/firebaseAuth";
+import { auth, provider } from "../../firebaseFunctions/firebaseAuth";
+
+import { signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
 
 import { fetchUserName } from "../../firebaseFunctions/firebaseStore";
 
@@ -33,7 +32,8 @@ const SignUpPage = ({ setUser, setUserName }) => {
 
   const signUpWithGoogle = async () => {
     try {
-      const user = await signInWithGoogle();
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
       await fetchUserName(user.uid);
       setErrorMessage("Already signed up");
     } catch (error) {
@@ -47,7 +47,7 @@ const SignUpPage = ({ setUser, setUserName }) => {
       return;
     } else {
       try {
-        await signUpWithEmailAndPassword(email, password);
+        await createUserWithEmailAndPassword(auth, email, password);
         setNextClicked(true);
         setErrorMessage("");
       } catch (error) {

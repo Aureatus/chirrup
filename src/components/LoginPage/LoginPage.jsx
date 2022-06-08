@@ -19,7 +19,8 @@ import {
   StyledNavSpan,
 } from "./StyledComponents";
 
-import { signInAsGuest } from "../../firebaseFunctions/firebaseAuth";
+import { signInAnonymously } from "firebase/auth";
+import { auth } from "../../firebaseFunctions/firebaseAuth";
 
 function LoginPage({ setUser }) {
   return (
@@ -62,7 +63,8 @@ function LoginPage({ setUser }) {
           <SignInLink to={"/sign-in"}>Sign In</SignInLink>
           <GuestSignInButton
             onClick={async () => {
-              const user = await signInAsGuest();
+              const result = await signInAnonymously(auth);
+              const user = result.user;
               setUser(user);
             }}
           >

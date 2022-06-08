@@ -1,10 +1,9 @@
 import { useState } from "react";
-import {
-  logInWithEmailAndPassword,
-  signInWithGoogle,
-} from "../../firebaseFunctions/firebaseAuth";
+import { auth, provider } from "../../firebaseFunctions/firebaseAuth";
 
 import { fetchUserName } from "../../firebaseFunctions/firebaseStore";
+
+import { signInWithPopup, signInWithEmailAndPassword } from "firebase/auth";
 
 import {
   Background,
@@ -44,12 +43,16 @@ const SignInPage = ({ setUser, setUserName }) => {
         <SignInWithGoogle
           onClick={async () => {
             try {
-              const user = await signInWithGoogle();
+              const result = await signInWithPopup(auth, provider);
+              const user = result.user;
               const userName = await fetchUserName(user.uid);
               setUser(user);
               setUserName(userName);
               navigate("/");
             } catch (error) {
+              if (error.message === "Please sign up before signing in.") {
+                navigate("/choose-user-name");
+              }
               setErrorMessage(error.message);
             }
           }}
@@ -103,14 +106,22 @@ const SignInPage = ({ setUser, setUserName }) => {
                 return;
               }
               try {
-                const user = await logInWithEmailAndPassword(email, password);
+                const result = await signInWithEmailAndPassword(
+                  auth,
+                  email,
+                  password
+                );
+                const user = result.user;
                 const userName = await fetchUserName(user.uid);
                 setUser(user);
                 setUserName(userName);
                 navigate("/");
               } catch (error) {
+                if (error.code === "auth/user-not-found") {
+                  setErrorMessage(error.message);
+                  return;
+                }
                 navigate("/choose-user-name");
-                setErrorMessage(error.message);
               }
             }}
           >

@@ -11,8 +11,8 @@ import {
   SetNameButton,
 } from "./StyledComponents";
 
-import { getCurrentUser } from "../../firebaseFunctions/firebaseAuth";
 import { createUserName } from "../../firebaseFunctions/firebaseStore";
+import { auth } from "../../firebaseFunctions/firebaseAuth";
 
 const ChooseUserName = ({ setUser, setUserName }) => {
   const [errorMessage, setErrorMessage] = useState("");
@@ -25,7 +25,7 @@ const ChooseUserName = ({ setUser, setUserName }) => {
       setErrorMessage("User name is required.");
       return;
     } else {
-      const user = getCurrentUser();
+      const user = auth.currentUser;
       try {
         if (user.providerData[0].providerId === "password") {
           await createUserName(user.uid, inputUserName);

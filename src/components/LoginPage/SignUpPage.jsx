@@ -6,7 +6,7 @@ import {
   Container,
   SmallTwitterLogoContainer,
   Header2,
-  SignUpWithGoogle,
+  SignUpWithGoogleButton,
   StyledSeparator,
   StyledHr,
   InputContainer,
@@ -20,6 +20,7 @@ import {
   signInWithGoogle,
   signUpWithEmailAndPassword,
 } from "../../firebaseFunctions/firebaseAuth";
+
 import { fetchUserName } from "../../firebaseFunctions/firebaseStore";
 
 const SignUpPage = ({ setUser, setUserName }) => {
@@ -29,6 +30,31 @@ const SignUpPage = ({ setUser, setUserName }) => {
   const [nextClicked, setNextClicked] = useState(false);
 
   const navigate = useNavigate();
+
+  const signUpWithGoogle = async () => {
+    try {
+      const user = await signInWithGoogle();
+      await fetchUserName(user.uid);
+      setErrorMessage("Already signed up");
+    } catch (error) {
+      setNextClicked(true);
+    }
+  };
+
+  const emailSignUpStep1 = async () => {
+    if (!email || !password) {
+      setErrorMessage("Email and password must be filled in.");
+      return;
+    } else {
+      try {
+        await signUpWithEmailAndPassword(email, password);
+        setNextClicked(true);
+        setErrorMessage("");
+      } catch (error) {
+        setErrorMessage(error.message);
+      }
+    }
+  };
 
   useEffect(() => {
     if (nextClicked) {
@@ -48,17 +74,7 @@ const SignUpPage = ({ setUser, setUserName }) => {
           </svg>
         </SmallTwitterLogoContainer>
         <Header2>Sign up to Twitter</Header2>
-        <SignUpWithGoogle
-          onClick={async () => {
-            try {
-              const user = await signInWithGoogle();
-              await fetchUserName(user.uid);
-              setErrorMessage("Already signed up");
-            } catch (error) {
-              setNextClicked(true);
-            }
-          }}
-        >
+        <SignUpWithGoogleButton onClick={() => signUpWithGoogle()}>
           <svg viewBox="0 0 24 24" height={24} width={24}>
             <path
               d="M18.977 4.322L16 7.3c-1.023-.838-2.326-1.35-3.768-1.35-2.69 0-4.95 1.73-5.74 4.152l-3.44-2.635c1.656-3.387 5.134-5.705 9.18-5.705 2.605 0 4.93.977 6.745 2.56z"
@@ -78,7 +94,7 @@ const SignUpPage = ({ setUser, setUserName }) => {
             ></path>
           </svg>
           <div>Sign up with Google</div>
-        </SignUpWithGoogle>
+        </SignUpWithGoogleButton>
         <StyledSeparator>
           <StyledHr />
           <span>or</span>
@@ -105,24 +121,7 @@ const SignUpPage = ({ setUser, setUserName }) => {
               }
             }}
           />
-          <NextButton
-            onClick={async () => {
-              if (!email || !password) {
-                setErrorMessage("Email and password must be filled in.");
-                return;
-              } else {
-                try {
-                  await signUpWithEmailAndPassword(email, password);
-                  setNextClicked(true);
-                  setErrorMessage("");
-                } catch (error) {
-                  setErrorMessage(error.message);
-                }
-              }
-            }}
-          >
-            Next
-          </NextButton>
+          <NextButton onClick={() => emailSignUpStep1()}>Next</NextButton>
         </InputContainer>
         <ErrorContainer>{errorMessage}</ErrorContainer>
       </Container>

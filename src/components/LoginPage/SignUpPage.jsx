@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 import {
@@ -14,76 +14,27 @@ import {
   PasswordInput,
   NextButton,
   ErrorContainer,
-  UserNameInput,
-  SignUpButton,
 } from "./StyledComponents";
 
 import {
   signInWithGoogle,
   signUpWithEmailAndPassword,
-  getCurrentUser,
 } from "../../firebaseFunctions/firebaseAuth";
-import {
-  fetchUserName,
-  createUserName,
-} from "../../firebaseFunctions/firebaseStore";
+import { fetchUserName } from "../../firebaseFunctions/firebaseStore";
 
 const SignUpPage = ({ setUser, setUserName }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
   const [nextClicked, setNextClicked] = useState(false);
-  const [inputUserName, setInputUsername] = useState("");
 
   const navigate = useNavigate();
 
-  if (nextClicked) {
-    return (
-      <Background>
-        <Container>
-          <Header2>Please enter a user name.</Header2>
-          <UserNameInput
-            type="text"
-            placeholder="Username"
-            required
-            onChange={(e) => {
-              if (e.target.validity) {
-                setInputUsername(e.target.value);
-              }
-            }}
-          />
-          <ErrorContainer>{errorMessage}</ErrorContainer>
-          <SignUpButton
-            onClick={async () => {
-              if (!inputUserName) {
-                setErrorMessage("User name is required.");
-                return;
-              } else {
-                const user = getCurrentUser();
-                try {
-                  if (user.providerData[0].providerId === "password") {
-                    await createUserName(user.uid, inputUserName);
-                    setUser(user);
-                    setUserName(inputUserName);
-                    navigate("/");
-                  } else if (user.providerData[0].providerId === "google.com") {
-                    const userName = await fetchUserName(user.uid);
-                    setUser(user);
-                    setUserName(userName);
-                    navigate("/");
-                  }
-                } catch (error) {
-                  setErrorMessage(error.message);
-                }
-              }
-            }}
-          >
-            Sign up!
-          </SignUpButton>
-        </Container>
-      </Background>
-    );
-  }
+  useEffect(() => {
+    if (nextClicked) {
+      navigate("/choose-user-name");
+    }
+  }, [nextClicked, navigate]);
 
   return (
     <Background>

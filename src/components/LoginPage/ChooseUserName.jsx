@@ -16,7 +16,7 @@ import { createUserName } from "../../firebaseFunctions/firebaseStore";
 
 const ChooseUserName = ({ setUser, setUserName }) => {
   const [errorMessage, setErrorMessage] = useState("");
-  const [userNameInput, setUserNameInput] = useState("");
+  const [inputUserName, setinputUserName] = useState("");
 
   const navigate = useNavigate();
 
@@ -30,22 +30,33 @@ const ChooseUserName = ({ setUser, setUserName }) => {
           required
           onChange={(e) => {
             if (e.target.validity) {
-              setUserNameInput(e.target.value);
+              setinputUserName(e.target.value);
             }
           }}
         />
         <ErrorContainer>{errorMessage}</ErrorContainer>
         <SetNameButton
           onClick={async () => {
-            if (!userNameInput) {
+            if (!inputUserName) {
               setErrorMessage("User name is required.");
               return;
             } else {
               const user = getCurrentUser();
-              await createUserName(user.uid, userNameInput);
-              await setUserName(userNameInput);
-              await setUser(user);
-              navigate("/");
+              try {
+                if (user.providerData[0].providerId === "password") {
+                  await createUserName(user.uid, inputUserName);
+                  setUser(user);
+                  setUserName(inputUserName);
+                  navigate("/");
+                } else if (user.providerData[0].providerId === "google.com") {
+                  await createUserName(user.uid, inputUserName);
+                  setUser(user);
+                  setUserName(inputUserName);
+                  navigate("/");
+                }
+              } catch (error) {
+                setErrorMessage(error.message);
+              }
             }
           }}
         >

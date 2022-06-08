@@ -304,7 +304,7 @@ const StyledNavSpan = styled.span`
 
 // SignUpPage
 
-const SignUpWithGoogle = styled.button`
+const SignUpWithGoogleButton = styled.button`
   display: flex;
   width: max-content;
   align-items: center;
@@ -436,7 +436,7 @@ export {
   StyledNav,
   StyledNavButton,
   StyledNavSpan,
-  SignUpWithGoogle,
+  SignUpWithGoogleButton,
   InputContainer,
   EmailInput,
   PasswordInput,

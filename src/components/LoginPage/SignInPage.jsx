@@ -88,7 +88,9 @@ const SignInPage = ({ setUser, setUserName }) => {
             placeholder="Email address"
             required
             onChange={(e) => {
-              setEmail(e.target.value);
+              if (e.target.validity.valid) {
+                setEmail(e.target.value);
+              }
             }}
           />
           <PasswordInput
@@ -96,11 +98,14 @@ const SignInPage = ({ setUser, setUserName }) => {
             placeholder="password"
             required
             onChange={(e) => {
-              setPassword(e.target.value);
+              if (e.target.validity.valid) {
+                setPassword(e.target.value);
+              }
             }}
           />
           <LoginButton
             onClick={async () => {
+              setErrorMessage("");
               if (!email || !password) {
                 setErrorMessage("Email and password must be filled in.");
                 return;
@@ -119,6 +124,8 @@ const SignInPage = ({ setUser, setUserName }) => {
               } catch (error) {
                 if (error.code === "auth/user-not-found") {
                   setErrorMessage(error.message);
+                  setEmail("");
+                  setPassword("");
                   return;
                 }
                 navigate("/choose-user-name");

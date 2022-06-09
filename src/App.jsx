@@ -30,10 +30,7 @@ function App() {
             path="/sign-in"
             element={<SignInPage setUser={setUser} setUserName={setUserName} />}
           />
-          <Route
-            path="/sign-up"
-            element={<SignUpPage setUser={setUser} setUserName={setUserName} />}
-          />
+          <Route path="/sign-up" element={<SignUpPage />} />
           <Route
             path="/choose-user-name"
             element={

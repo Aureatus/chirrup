@@ -22,7 +22,7 @@ import { signInWithPopup, createUserWithEmailAndPassword } from "firebase/auth";
 
 import { fetchUserName } from "../../firebaseFunctions/firebaseStore";
 
-const SignUpPage = ({ setUser, setUserName }) => {
+const SignUpPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");

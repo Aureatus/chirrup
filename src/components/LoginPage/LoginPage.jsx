@@ -23,10 +23,7 @@ import { signInAnonymously } from "firebase/auth";
 
 import { auth } from "../../firebaseFunctions/firebaseAuth";
 
-import {
-  createUserName,
-  fetchUserName,
-} from "../../firebaseFunctions/firebaseStore";
+import { createUserName } from "../../firebaseFunctions/firebaseStore";
 
 function LoginPage({ setUser, setUserName }) {
   return (

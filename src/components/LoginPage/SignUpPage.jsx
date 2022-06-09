@@ -41,7 +41,7 @@ const SignUpPage = ({ setUser, setUserName }) => {
     }
   };
 
-  const emailSignUpStep1 = async () => {
+  const signUpWithEmail = async () => {
     if (!email || !password) {
       setErrorMessage("Email and password must be filled in.");
       return;
@@ -121,7 +121,7 @@ const SignUpPage = ({ setUser, setUserName }) => {
               }
             }}
           />
-          <NextButton onClick={() => emailSignUpStep1()}>Next</NextButton>
+          <NextButton onClick={() => signUpWithEmail()}>Next</NextButton>
         </InputContainer>
         <ErrorContainer>{errorMessage}</ErrorContainer>
       </Container>

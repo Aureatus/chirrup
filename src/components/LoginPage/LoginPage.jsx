@@ -20,9 +20,15 @@ import {
 } from "./StyledComponents";
 
 import { signInAnonymously } from "firebase/auth";
+
 import { auth } from "../../firebaseFunctions/firebaseAuth";
 
-function LoginPage({ setUser }) {
+import {
+  createUserName,
+  fetchUserName,
+} from "../../firebaseFunctions/firebaseStore";
+
+function LoginPage({ setUser, setUserName }) {
   return (
     <LoginContainer>
       <LeftSection>
@@ -63,9 +69,16 @@ function LoginPage({ setUser }) {
           <SignInLink to={"/sign-in"}>Sign In</SignInLink>
           <GuestSignInButton
             onClick={async () => {
-              const result = await signInAnonymously(auth);
-              const user = result.user;
-              setUser(user);
+              try {
+                const result = await signInAnonymously(auth);
+                const user = result.user;
+                const userName = "Guest";
+                setUser(user);
+                await createUserName(user.uid, userName);
+                setUserName(userName);
+              } catch (error) {
+                alert(error.message);
+              }
             }}
           >
             Guest sign in

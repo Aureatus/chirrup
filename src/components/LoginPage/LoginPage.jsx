@@ -25,7 +25,14 @@ import { auth } from "../../firebaseFunctions/firebaseAuth";
 
 import { createUserName } from "../../firebaseFunctions/firebaseStore";
 
-function LoginPage({ setUser, setUserName }) {
+import { useContext } from "react";
+import { UserContext } from "../../contexts/UserContext";
+import { UserNameContext } from "../../contexts/UserNameContext";
+
+function LoginPage() {
+  const { setUser } = useContext(UserContext);
+  const { setUserName } = useContext(UserNameContext);
+
   return (
     <LoginContainer>
       <LeftSection>

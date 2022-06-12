@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
 
 import { useNavigate } from "react-router-dom";
 
@@ -14,7 +14,13 @@ import {
 import { createUserName } from "../../firebaseFunctions/firebaseStore";
 import { auth } from "../../firebaseFunctions/firebaseAuth";
 
-const ChooseUserName = ({ setUser, setUserName }) => {
+import { UserContext } from "../../contexts/UserContext";
+import { UserNameContext } from "../../contexts/UserNameContext";
+
+const ChooseUserName = () => {
+  const { setUser } = useContext(UserContext);
+  const { setUserName } = useContext(UserNameContext);
+
   const [errorMessage, setErrorMessage] = useState("");
   const [inputUserName, setinputUserName] = useState("");
 

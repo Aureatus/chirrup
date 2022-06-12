@@ -13,8 +13,11 @@ import ChooseUserName from "./components/LoginPage/ChooseUserName";
 import { UserContext } from "./contexts/UserContext";
 import { UserNameContext } from "./contexts/UserNameContext";
 
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "./firebaseFunctions/firebaseAuth";
+
 function App() {
-  const [user, setUser] = useState(null);
+  const [user, loading, error] = useAuthState(auth);
   const [userName, setUserName] = useState(null);
   const [theme, setTheme] = useState("light");
 
@@ -24,7 +27,7 @@ function App() {
 
   if (!user || (!userName && user.isAnonymous !== true)) {
     return (
-      <UserContext.Provider value={{ user, setUser }}>
+      <UserContext.Provider value={{ user }}>
         <UserNameContext.Provider value={{ userName, setUserName }}>
           <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
             <GlobalStyles />
@@ -36,16 +39,12 @@ function App() {
               <Route path="/login" element={<LoginPage />} />
               <Route
                 path="/sign-in"
-                element={
-                  <SignInPage setUser={setUser} setUserName={setUserName} />
-                }
+                element={<SignInPage setUserName={setUserName} />}
               />
               <Route path="/sign-up" element={<SignUpPage />} />
               <Route
                 path="/choose-user-name"
-                element={
-                  <ChooseUserName setUser={setUser} setUserName={setUserName} />
-                }
+                element={<ChooseUserName setUserName={setUserName} />}
               />
             </Routes>
           </ThemeProvider>

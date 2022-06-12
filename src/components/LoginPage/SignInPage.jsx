@@ -23,11 +23,9 @@ import {
 
 import { useNavigate } from "react-router-dom";
 
-import { UserContext } from "../../contexts/UserContext";
 import { UserNameContext } from "../../contexts/UserNameContext";
 
 const SignInPage = () => {
-  const { setUser } = useContext(UserContext);
   const { setUserName } = useContext(UserNameContext);
 
   const [email, setEmail] = useState("");
@@ -53,7 +51,6 @@ const SignInPage = () => {
               const result = await signInWithPopup(auth, provider);
               const user = result.user;
               const userName = await fetchUserName(user.uid);
-              setUser(user);
               setUserName(userName);
               navigate("/");
             } catch (error) {
@@ -125,7 +122,6 @@ const SignInPage = () => {
                 );
                 const user = result.user;
                 const userName = await fetchUserName(user.uid);
-                setUser(user);
                 setUserName(userName);
                 navigate("/");
               } catch (error) {

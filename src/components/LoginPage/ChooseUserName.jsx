@@ -14,11 +14,9 @@ import {
 import { createUserName } from "../../firebaseFunctions/firebaseStore";
 import { auth } from "../../firebaseFunctions/firebaseAuth";
 
-import { UserContext } from "../../contexts/UserContext";
 import { UserNameContext } from "../../contexts/UserNameContext";
 
 const ChooseUserName = () => {
-  const { setUser } = useContext(UserContext);
   const { setUserName } = useContext(UserNameContext);
 
   const [errorMessage, setErrorMessage] = useState("");
@@ -35,12 +33,10 @@ const ChooseUserName = () => {
       try {
         if (user.providerData[0].providerId === "password") {
           await createUserName(user.uid, inputUserName);
-          setUser(user);
           setUserName(inputUserName);
           navigate("/");
         } else if (user.providerData[0].providerId === "google.com") {
           await createUserName(user.uid, inputUserName);
-          setUser(user);
           setUserName(inputUserName);
           navigate("/");
         }

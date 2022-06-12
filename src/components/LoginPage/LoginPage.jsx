@@ -26,11 +26,9 @@ import { auth } from "../../firebaseFunctions/firebaseAuth";
 import { createUserName } from "../../firebaseFunctions/firebaseStore";
 
 import { useContext } from "react";
-import { UserContext } from "../../contexts/UserContext";
 import { UserNameContext } from "../../contexts/UserNameContext";
 
 function LoginPage() {
-  const { setUser } = useContext(UserContext);
   const { setUserName } = useContext(UserNameContext);
 
   return (
@@ -77,7 +75,6 @@ function LoginPage() {
                 const result = await signInAnonymously(auth);
                 const user = result.user;
                 const userName = "Guest";
-                setUser(user);
                 await createUserName(user.uid, userName);
                 setUserName(userName);
               } catch (error) {

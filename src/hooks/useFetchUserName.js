@@ -8,7 +8,6 @@ const useFetchUserName = (user) => {
     (async () => {
       try {
         const uid = user.uid;
-        console.log(uid);
         if (uid) {
           const currentUserName = await fetchUserName(uid);
           setUserName(currentUserName);

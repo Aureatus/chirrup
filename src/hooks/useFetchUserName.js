@@ -19,7 +19,7 @@ const useFetchUserName = (user) => {
     })();
   }, [user]);
 
-  return [userName];
+  return [userName, setUserName];
 };
 
 export default useFetchUserName;

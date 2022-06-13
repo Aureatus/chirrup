@@ -15,10 +15,11 @@ import { UserNameContext } from "./contexts/UserNameContext";
 
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebaseFunctions/firebaseAuth";
+import useFetchUserName from "./hooks/useFetchUserName";
 
 function App() {
   const [user, loading, error] = useAuthState(auth);
-  const [userName, setUserName] = useState(null);
+  const [userName, setUserName] = useFetchUserName(user);
   const [theme, setTheme] = useState("light");
 
   const toggleTheme = () => {

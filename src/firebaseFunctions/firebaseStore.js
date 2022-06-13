@@ -9,7 +9,7 @@ const fetchUserName = async (uid) => {
   const docSnap = await getDoc(docRef);
 
   if (docSnap.exists()) {
-    return docSnap.data();
+    return docSnap.data().userName;
   } else {
     return Promise.reject(new Error("Please sign up before signing in."));
   }

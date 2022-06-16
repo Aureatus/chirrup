@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Routes, Route, Navigate } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Routes, Route, Navigate, useNavigate } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 import { lightTheme, darkTheme } from "./components/themes";
@@ -16,11 +16,35 @@ import { UserNameContext } from "./contexts/UserNameContext";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebaseFunctions/firebaseAuth";
 import useFetchUserName from "./hooks/useFetchUserName";
+import LoadingPage from "./components/LoadingPage/LoadingPage";
 
 function App() {
   const [user, loading, error] = useAuthState(auth);
-  const [userName, setUserName] = useFetchUserName(user);
+  const [userName, setUserName, userNameLoading] = useFetchUserName(user);
   const [theme, setTheme] = useState("light");
+
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (
+      !loading &&
+      !user &&
+      (window.location.pathname === "/" ||
+        window.location.pathname === "/loading")
+    ) {
+      navigate("/login");
+      return;
+    }
+    if (window.location.pathname !== "/loading") {
+      if (loading) {
+        navigate("/loading");
+      }
+    } else if (window.location.pathname === "/loading") {
+      if (user && userName) {
+        navigate("/");
+      }
+    }
+  }, [user, userName, loading, userNameLoading, navigate]);
 
   const toggleTheme = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
@@ -33,10 +57,7 @@ function App() {
           <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
             <GlobalStyles />
             <Routes>
-              <Route
-                path="/"
-                element={<Navigate to="/login" replace={true} />}
-              />
+              <Route path="/loading" element={<LoadingPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route
                 path="/sign-in"

@@ -26,6 +26,10 @@ function App() {
   const navigate = useNavigate();
 
   useEffect(() => {
+    if (error) {
+      alert(error);
+    }
+
     if (
       !loading &&
       !user &&
@@ -44,7 +48,7 @@ function App() {
         navigate("/");
       }
     }
-  }, [user, userName, loading, userNameLoading, navigate]);
+  }, [user, userName, loading, error, userNameLoading, navigate]);
 
   const toggleTheme = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");

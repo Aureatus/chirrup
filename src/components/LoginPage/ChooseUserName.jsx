@@ -31,11 +31,7 @@ const ChooseUserName = () => {
     } else {
       const user = auth.currentUser;
       try {
-        if (user.providerData[0].providerId === "password") {
-          await createUserName(user.uid, inputUserName);
-          setUserName(inputUserName);
-          navigate("/");
-        } else if (user.providerData[0].providerId === "google.com") {
+        if (user) {
           await createUserName(user.uid, inputUserName);
           setUserName(inputUserName);
           navigate("/");

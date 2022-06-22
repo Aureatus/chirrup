@@ -47,6 +47,18 @@ function App() {
       if (user && userName) {
         navigate("/");
       }
+      if (!userNameLoading && user) {
+        let navTimeOut;
+        if (!userName) {
+          if (!navTimeOut)
+            navTimeOut = setTimeout(() => navigate("choose-user-name"), 300);
+        }
+        if (userName) {
+          if (navTimeOut) {
+            clearTimeout(navTimeOut);
+          }
+        }
+      }
     }
   }, [user, userName, loading, error, userNameLoading, navigate]);
 
@@ -78,8 +90,8 @@ function App() {
       </UserContext.Provider>
     );
   }
-  if (user) {
-    return <div></div>;
+  if (user && userName) {
+    return <div>{userName}</div>;
   }
 }
 

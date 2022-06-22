@@ -3,14 +3,13 @@ import { fetchUserName } from "../firebaseFunctions/firebaseStore";
 
 const useFetchUserName = (user) => {
   const [userName, setUserName] = useState(null);
-  const [userNameLoading, setUserNameLoading] = useState(false);
+  const [userNameLoading, setUserNameLoading] = useState(true);
 
   useEffect(() => {
     (async () => {
       try {
-        const uid = user.uid;
+        const uid = user?.uid;
         if (uid) {
-          setUserNameLoading(true);
           const currentUserName = await fetchUserName(uid);
           setUserName(currentUserName);
         }

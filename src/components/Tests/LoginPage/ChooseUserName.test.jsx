@@ -7,8 +7,8 @@ import { UserNameContext } from "../../../contexts/UserNameContext";
 
 import { BrowserRouter } from "react-router-dom";
 
-import { auth } from "..//..//..//firebaseFunctions/firebaseAuth.js";
-import { createUserName } from "..//..//..//firebaseFunctions/firebaseStore.js";
+import { auth } from "../../../firebaseFunctions/firebaseAuth.js";
+import { createUserName } from "../../../firebaseFunctions/firebaseStore.js";
 
 afterEach(cleanup);
 

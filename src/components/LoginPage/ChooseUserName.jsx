@@ -35,6 +35,8 @@ const ChooseUserName = () => {
           await createUserName(user.uid, inputUserName);
           setUserName(inputUserName);
           navigate("/");
+        } else {
+          throw Error("User not valid");
         }
       } catch (error) {
         setErrorMessage(error.message);
@@ -47,6 +49,7 @@ const ChooseUserName = () => {
       <Container>
         <Header2>Please enter a user name.</Header2>
         <UserNameInput
+          id="user-name"
           type="text"
           placeholder="Username"
           required
@@ -56,7 +59,7 @@ const ChooseUserName = () => {
             }
           }}
         />
-        <ErrorContainer>{errorMessage}</ErrorContainer>
+        <ErrorContainer htmlFor="user-name">{errorMessage}</ErrorContainer>
         <SetNameButton onClick={() => setName()}>Set name</SetNameButton>
       </Container>
     </Background>

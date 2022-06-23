@@ -85,7 +85,7 @@ const PasswordInput = styled.input`
   }
 `;
 
-const ErrorContainer = styled.div`
+const ErrorContainer = styled.label`
   height: auto;
   width: 100%;
 

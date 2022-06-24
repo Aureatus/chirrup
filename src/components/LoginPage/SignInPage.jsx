@@ -24,6 +24,7 @@ import {
 import { useNavigate } from "react-router-dom";
 
 import { UserNameContext } from "../../contexts/UserNameContext";
+import { useRef } from "react";
 
 const SignInPage = () => {
   const { setUserName } = useContext(UserNameContext);
@@ -31,6 +32,10 @@ const SignInPage = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
+
+  const emailInput = useRef(null);
+  const passwordInput = useRef(null);
+
   const navigate = useNavigate();
 
   return (
@@ -88,6 +93,7 @@ const SignInPage = () => {
         </StyledSeparator>
         <InputContainer>
           <EmailInput
+            ref={emailInput}
             type="email"
             placeholder="Email address"
             required
@@ -98,6 +104,7 @@ const SignInPage = () => {
             }}
           />
           <PasswordInput
+            ref={passwordInput}
             type="password"
             placeholder="password"
             required
@@ -129,6 +136,8 @@ const SignInPage = () => {
                   setErrorMessage(error.message);
                   setEmail("");
                   setPassword("");
+                  emailInput.current.value = "";
+                  passwordInput.current.value = "";
                   return;
                 }
                 navigate("/choose-user-name");

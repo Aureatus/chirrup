@@ -55,6 +55,11 @@ describe("Signing in functions correctly", () => {
     });
 
     await user.click(signInWithGoogleButton);
+
+    expect(signInWithPopup).toBeCalledWith({ currentUser: true }, undefined);
+    expect(fetchUserName).toBeCalledWith(10);
+    expect(setUserName).toBeCalledWith("testUserName");
+    expect(history.location.pathname).toEqual("/");
   });
 
   test("Sign in with email", async () => {
@@ -90,6 +95,15 @@ describe("Signing in functions correctly", () => {
     await user.type(passwordInput, "testPassword");
 
     await user.click(LoginButton);
+
+    expect(signInWithEmailAndPassword).toBeCalledWith(
+      { currentUser: true },
+      "test@gmail.com",
+      "testPassword"
+    );
+    expect(fetchUserName).toBeCalledWith(10);
+    expect(setUserName).toBeCalledWith("testUserName");
+    expect(history.location.pathname).toEqual("/");
   });
 });
 

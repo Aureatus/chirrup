@@ -37,7 +37,9 @@ const SignUpPage = () => {
       await fetchUserName(user.uid);
       setErrorMessage("Already signed up");
     } catch (error) {
-      setNextClicked(true);
+      if (error.message === "Please sign up before signing in.") {
+        setNextClicked(true);
+      } else setErrorMessage(error.message);
     }
   };
 

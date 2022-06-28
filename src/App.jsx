@@ -1,5 +1,11 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  useNavigate,
+  useLocation,
+  Navigate,
+} from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 import { lightTheme, darkTheme } from "./components/themes";
@@ -17,7 +23,6 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebaseFunctions/firebaseAuth";
 import useFetchUserName from "./hooks/useFetchUserName";
 import LoadingPage from "./components/LoadingPage/LoadingPage";
-
 function App() {
   const [user, loading, error] = useAuthState(auth);
   const [userName, setUserName, userNameLoading] = useFetchUserName(
@@ -66,6 +71,7 @@ function App() {
           <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
             <GlobalStyles />
             <Routes>
+              <Route index element={<Navigate to={"/login"} />} />
               <Route path="/loading" element={<LoadingPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route

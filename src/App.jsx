@@ -17,6 +17,8 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebaseFunctions/firebaseAuth";
 import useFetchUserName from "./hooks/useFetchUserName";
 import LoadingPage from "./components/LoadingPage/LoadingPage";
+import ApplicationPage from "./components/ApplicationPage/ApplicationPage";
+import NavSidebar from "./components/ApplicationPage/NavSidebar/NavSidebar";
 
 function App() {
   const [user, loading, error] = useAuthState(auth);
@@ -91,7 +93,18 @@ function App() {
     );
   }
   if (user && userName) {
-    return <div>{userName}</div>;
+    return (
+      <UserContext.Provider value={{ user }}>
+        <UserNameContext.Provider value={{ userName }}>
+          <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+            <GlobalStyles />
+            <ApplicationPage>
+              <NavSidebar />
+            </ApplicationPage>
+          </ThemeProvider>
+        </UserNameContext.Provider>
+      </UserContext.Provider>
+    );
   }
 }
 

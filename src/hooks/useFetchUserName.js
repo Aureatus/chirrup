@@ -21,7 +21,7 @@ const useFetchUserName = (user, loading, error) => {
     }
   }, [user, loading]);
 
-  return [userName, setUserName, userNameLoading];
+  return [userName, setUserName, userNameLoading, setUserNameLoading];
 };
 
 export default useFetchUserName;

@@ -1,5 +1,11 @@
 import { useState, useEffect } from "react";
-import { Routes, Route, useNavigate } from "react-router-dom";
+import {
+  Routes,
+  Route,
+  useNavigate,
+  useLocation,
+  Navigate,
+} from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 import { lightTheme, darkTheme } from "./components/themes";
@@ -22,47 +28,37 @@ import NavSidebar from "./components/ApplicationPage/NavSidebar/NavSidebar";
 
 function App() {
   const [user, loading, error] = useAuthState(auth);
-  const [userName, setUserName, userNameLoading] = useFetchUserName(user);
+  const [userName, setUserName, userNameLoading, setUserNameLoading] =
+    useFetchUserName(user, loading, error);
   const [theme, setTheme] = useState("light");
 
   const navigate = useNavigate();
+  const location = useLocation();
 
   useEffect(() => {
-    if (error) {
-      alert(error);
-    }
+    if (user === null) setUserName(null);
+  }, [user, setUserName]);
 
+  useEffect(() => {
+    if (loading) navigate("/loading");
+  }, [loading, navigate]);
+
+  useEffect(() => {
+    if (user && userName) navigate("/");
+
+    if (user && !userName && !userNameLoading) navigate("/choose-user-name");
+  }, [user, userName, loading, userNameLoading, navigate]);
+
+  useEffect(() => {
     if (
-      !loading &&
       !user &&
-      (window.location.pathname === "/" ||
-        window.location.pathname === "/loading")
+      !userName &&
+      !loading &&
+      (location.pathname === "/" || location.pathname === "/loading")
     ) {
       navigate("/login");
-      return;
     }
-    if (window.location.pathname !== "/loading") {
-      if (loading) {
-        navigate("/loading");
-      }
-    } else if (window.location.pathname === "/loading") {
-      if (user && userName) {
-        navigate("/");
-      }
-      if (!userNameLoading && user) {
-        let navTimeOut;
-        if (!userName) {
-          if (!navTimeOut)
-            navTimeOut = setTimeout(() => navigate("choose-user-name"), 300);
-        }
-        if (userName) {
-          if (navTimeOut) {
-            clearTimeout(navTimeOut);
-          }
-        }
-      }
-    }
-  }, [user, userName, loading, error, userNameLoading, navigate]);
+  }, [user, userName, loading, location.pathname, navigate]);
 
   const toggleTheme = () => {
     theme === "light" ? setTheme("dark") : setTheme("light");
@@ -75,6 +71,7 @@ function App() {
           <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
             <GlobalStyles />
             <Routes>
+              <Route index element={<Navigate to={"/login"} />} />
               <Route path="/loading" element={<LoadingPage />} />
               <Route path="/login" element={<LoginPage />} />
               <Route

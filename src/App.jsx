@@ -25,11 +25,8 @@ import useFetchUserName from "./hooks/useFetchUserName";
 import LoadingPage from "./components/LoadingPage/LoadingPage";
 function App() {
   const [user, loading, error] = useAuthState(auth);
-  const [userName, setUserName, userNameLoading] = useFetchUserName(
-    user,
-    loading,
-    error
-  );
+  const [userName, setUserName, userNameLoading, setUserNameLoading] =
+    useFetchUserName(user, loading, error);
   const [theme, setTheme] = useState("light");
 
   const navigate = useNavigate();

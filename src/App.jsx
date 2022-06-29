@@ -1,11 +1,5 @@
 import { useState, useEffect } from "react";
-import {
-  Routes,
-  Route,
-  useNavigate,
-  useLocation,
-  Navigate,
-} from "react-router-dom";
+import { Routes, Route, useLocation, Navigate } from "react-router-dom";
 import { ThemeProvider } from "styled-components";
 
 import { lightTheme, darkTheme } from "./components/themes";
@@ -22,6 +16,7 @@ import { UserNameContext } from "./contexts/UserNameContext";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "./firebaseFunctions/firebaseAuth";
 import useFetchUserName from "./hooks/useFetchUserName";
+import useNav from "./hooks/useNav";
 import LoadingPage from "./components/LoadingPage/LoadingPage";
 import ApplicationPage from "./components/ApplicationPage/ApplicationPage";
 import NavSidebar from "./components/ApplicationPage/NavSidebar/NavSidebar";
@@ -32,7 +27,7 @@ function App() {
     useFetchUserName(user, loading, error);
   const [theme, setTheme] = useState("light");
 
-  const navigate = useNavigate();
+  const navigate = useNav();
   const location = useLocation();
 
   useEffect(() => {

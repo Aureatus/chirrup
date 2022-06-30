@@ -31,6 +31,12 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
+    if (location.pathname !== "/" && location.pathname !== "/loading") {
+      localStorage.setItem("path", location.pathname);
+    }
+  }, [location]);
+
+  useEffect(() => {
     if (user === null) setUserName(null);
   }, [user, setUserName]);
 
@@ -39,7 +45,14 @@ function App() {
   }, [loading, navigate]);
 
   useEffect(() => {
-    if (user && userName) navigate("/");
+    if (user && userName) {
+      const savedPath = localStorage.getItem("path");
+      if (savedPath) {
+        navigate(savedPath);
+      } else {
+        navigate("/");
+      }
+    }
 
     if (user && !userName && !userNameLoading) navigate("/choose-user-name");
   }, [user, userName, loading, userNameLoading, navigate]);

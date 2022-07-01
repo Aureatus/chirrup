@@ -14,9 +14,7 @@ body {
     color: inherit;
 }
 a:-webkit-any-link {
-    color: black;
     text-decoration: none;
-    color: inherit;
 }
 p {
     margin: 0;

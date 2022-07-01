@@ -9,6 +9,7 @@ import BookmarksButton from "./BookmarksButton";
 import ListsButton from "./ListsButton";
 import ProfileButton from "./ProfileButton";
 import MoreButton from "./MoreButton";
+import TweetButton from "./TweetButton";
 
 const NavSidebar = () => {
   return (
@@ -23,6 +24,7 @@ const NavSidebar = () => {
         <ListsButton />
         <ProfileButton />
         <MoreButton />
+        <TweetButton />
       </div>
     </Nav>
   );

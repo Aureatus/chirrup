@@ -30,6 +30,7 @@ function App() {
 
   useEffect(() => {
     if (location.pathname !== "/" && location.pathname !== "/loading") {
+      if (location.pathname === "/choose-user-name") return;
       localStorage.setItem("path", location.pathname);
     }
   }, [location]);

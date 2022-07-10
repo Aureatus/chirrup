@@ -34,6 +34,12 @@ const Button = styled(Link)`
   cursor: pointer;
   display: flex;
   font-weight: ${(props) => (props.selected ? 700 : 400)};
+
+  border-radius: 999px;
+
+  &:hover {
+    background-color: ${(props) => props.theme.secondary.background};
+  }
 `;
 
 const ButtonText = styled.p`
@@ -60,9 +66,16 @@ const UserSectionButton = styled.button`
   background-color: inherit;
   border: none;
   width: 100%;
+  padding: 10px 15px;
 
   font-size: 15px;
   font-family: Libre Franklin;
+
+  border-radius: 999px;
+
+  &:hover {
+    background-color: ${(props) => props.theme.secondary.background};
+  }
 `;
 
 const LeftSection = styled.div`

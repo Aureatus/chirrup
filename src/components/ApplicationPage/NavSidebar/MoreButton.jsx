@@ -6,6 +6,7 @@ import { Button, ButtonText } from "./StyledComponents";
 const CustomButton = styled(Button)`
   background-color: inherit;
   border: none;
+  width: 100%;
 `;
 
 const MoreButton = () => {

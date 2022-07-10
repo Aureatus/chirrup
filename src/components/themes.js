@@ -18,6 +18,7 @@ export const lightTheme = {
   tweet: {
     background: "#1d9bf0", // Blue
     text: "#FFFFFF", // White
+    selectedBlue: "#177dc2",
   },
 };
 
@@ -41,5 +42,6 @@ export const darkTheme = {
   tweet: {
     background: "#1d9bf0", // Blue
     text: "#FFFFFF", // White
+    selectedBlue: "#177dc2",
   },
 };

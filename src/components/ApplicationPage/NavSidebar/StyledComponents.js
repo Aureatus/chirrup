@@ -12,6 +12,12 @@ const Nav = styled.nav`
   justify-content: space-between;
 `;
 
+const TopSection = styled.section``;
+
+const BottomSection = styled.section`
+  width: 100%;
+  margin-bottom: 20px;
+`;
 const TwitterLogoContainer = styled(Link)`
   display: inline-block;
   cursor: pointer;
@@ -46,4 +52,82 @@ const MoreButton = styled.button`
   border: none;
 `;
 
-export { Nav, TwitterLogoContainer, Button, ButtonText, MoreButton };
+const UserSectionButton = styled.button`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background-color: inherit;
+  border: none;
+  width: 100%;
+
+  font-size: 15px;
+  font-family: Libre Franklin;
+`;
+
+const LeftSection = styled.div`
+  display: flex;
+`;
+
+const ProfileImg = styled.img`
+  border-radius: 50%;
+  height: 40px;
+`;
+
+const UserNameAndTag = styled.div`
+  margin: 0px 8px;
+`;
+
+const UserName = styled.p`
+  font-weight: 700;
+  text-align: start;
+`;
+
+const UserTag = styled.p`
+  color: ${(props) => props.theme.secondary.altText};
+  text-align: start;
+`;
+
+const RightSection = styled.div``;
+
+const StyledSvg = styled.svg`
+  height: 1.25rem;
+`;
+
+const LogOutContainer = styled.div`
+  display: flex;
+  width: 100%;
+  margin: 20px 0px;
+
+  border-radius: 5px;
+  box-shadow: ${(props) => props.theme.secondary.altText} 0px -1px 8px -2px;
+`;
+
+const LogOutButton = styled(Link)`
+  display: flex;
+  width: 100%;
+  padding-left: 16px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  z-index: 1;
+`;
+
+export {
+  Nav,
+  TwitterLogoContainer,
+  Button,
+  ButtonText,
+  MoreButton,
+  UserSectionButton,
+  LeftSection,
+  ProfileImg,
+  UserNameAndTag,
+  UserName,
+  UserTag,
+  RightSection,
+  StyledSvg,
+  TopSection,
+  BottomSection,
+  LogOutContainer,
+  LogOutButton,
+};

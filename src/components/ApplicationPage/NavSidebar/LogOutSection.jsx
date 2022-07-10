@@ -1,7 +1,18 @@
 import { useContext } from "react";
-import { LogOutContainer, LogOutButton } from "./StyledComponents";
+import { Button, LogOutContainer } from "./StyledComponents";
+import styled from "styled-components";
 
 import { UserNameContext } from "../../../contexts/UserNameContext";
+
+const LogOutButton = styled(Button)`
+  display: flex;
+  width: 100%;
+  border-radius: 5px;
+  padding-left: 16px;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  z-index: 1;
+`;
 
 const LogOutSection = ({ setUserSectionClicked }) => {
   const userName = useContext(UserNameContext).userName;

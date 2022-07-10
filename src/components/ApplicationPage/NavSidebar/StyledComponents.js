@@ -116,15 +116,6 @@ const LogOutContainer = styled.div`
   box-shadow: ${(props) => props.theme.secondary.altText} 0px -1px 8px -2px;
 `;
 
-const LogOutButton = styled(Link)`
-  display: flex;
-  width: 100%;
-  padding-left: 16px;
-  padding-top: 20px;
-  padding-bottom: 20px;
-  z-index: 1;
-`;
-
 export {
   Nav,
   TwitterLogoContainer,
@@ -142,5 +133,4 @@ export {
   TopSection,
   BottomSection,
   LogOutContainer,
-  LogOutButton,
 };

@@ -15,6 +15,10 @@ const CustomButton = styled(Button)`
   justify-content: center;
   min-height: 52px;
   min-width: 175px;
+
+  &:hover {
+    background-color: ${(props) => props.theme.tweet.selectedBlue};
+  }
 `;
 
 const TweetButton = () => {

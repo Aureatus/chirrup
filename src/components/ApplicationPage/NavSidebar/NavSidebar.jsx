@@ -1,4 +1,4 @@
-import { Nav } from "./StyledComponents";
+import { Nav, TopSection, BottomSection } from "./StyledComponents";
 
 import TwitterLogo from "./TwitterLogo";
 import HomeButton from "./HomeButton";
@@ -10,11 +10,25 @@ import ListsButton from "./ListsButton";
 import ProfileButton from "./ProfileButton";
 import MoreButton from "./MoreButton";
 import TweetButton from "./TweetButton";
+import UserSection from "./UserSection";
+import LogOutSection from "./LogOutSection";
+import { useState } from "react";
 
 const NavSidebar = () => {
+  const [userSectionClicked, setUserSectionClicked] = useState(false);
+
+  const bottomSectionChildren = userSectionClicked ? (
+    <>
+      <LogOutSection setUserSectionClicked={setUserSectionClicked} />
+      <UserSection setUserSectionClicked={setUserSectionClicked} />
+    </>
+  ) : (
+    <UserSection setUserSectionClicked={setUserSectionClicked} />
+  );
+
   return (
     <Nav>
-      <div id="top-section">
+      <TopSection>
         <TwitterLogo />
         <HomeButton />
         <ExploreButton />
@@ -25,7 +39,8 @@ const NavSidebar = () => {
         <ProfileButton />
         <MoreButton />
         <TweetButton />
-      </div>
+      </TopSection>
+      <BottomSection>{bottomSectionChildren}</BottomSection>
     </Nav>
   );
 };

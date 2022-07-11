@@ -57,7 +57,6 @@ const SignInPage = () => {
               const user = result.user;
               const userName = await fetchUserName(user.uid);
               setUserName(userName);
-              navigate("/");
             } catch (error) {
               if (error.message === "Please sign up before signing in.") {
                 navigate("/choose-user-name");

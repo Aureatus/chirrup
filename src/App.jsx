@@ -20,19 +20,34 @@ import useNav from "./hooks/useNav";
 import LoadingPage from "./components/LoadingPage/LoadingPage";
 import ApplicationPage from "./components/ApplicationPage/ApplicationPage";
 import NavSidebar from "./components/ApplicationPage/NavSidebar/NavSidebar";
+import LogoutPage from "./components/LogoutPage/LogoutPage";
 
 function App() {
   const [user, loading, error] = useAuthState(auth);
   const [userName, setUserName, userNameLoading, setUserNameLoading] =
     useFetchUserName(user, loading, error);
+  const [logoutClicked, setLogoutClicked] = useState(false);
+  const [pastPathname, setPastPathname] = useState(null);
   const [theme, setTheme] = useState("light");
 
   const navigate = useNav();
   const location = useLocation();
 
   useEffect(() => {
+    setPastPathname(location.pathname);
+  }, [location.pathname]);
+
+  useEffect(() => {
+    if (location.pathname === "/logout" && !logoutClicked)
+      setLogoutClicked(true);
+    if (pastPathname === "/logout" && location.pathname !== "/logout")
+      setLogoutClicked(false);
+  }, [location.pathname, logoutClicked, pastPathname]);
+
+  useEffect(() => {
     if (location.pathname !== "/" && location.pathname !== "/loading") {
       if (location.pathname === "/choose-user-name") return;
+      if (location.pathname === "/logout") return;
       localStorage.setItem("path", location.pathname);
     }
   }, [location]);
@@ -73,6 +88,24 @@ function App() {
     theme === "light" ? setTheme("dark") : setTheme("light");
   };
 
+  if (logoutClicked) {
+    return (
+      <UserContext.Provider value={{ user }}>
+        <UserNameContext.Provider value={{ userName, setUserName }}>
+          <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+            <GlobalStyles />
+            <Routes>
+              <Route
+                path="/logout"
+                element={<LogoutPage setLogoutClicked={setLogoutClicked} />}
+              />
+            </Routes>
+          </ThemeProvider>
+        </UserNameContext.Provider>
+      </UserContext.Provider>
+    );
+  }
+
   if (!user || (!userName && user.isAnonymous !== true)) {
     return (
       <UserContext.Provider value={{ user }}>
@@ -105,7 +138,7 @@ function App() {
           <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
             <GlobalStyles />
             <ApplicationPage>
-              <NavSidebar />
+              <NavSidebar setLogoutClicked={setLogoutClicked} />
             </ApplicationPage>
           </ThemeProvider>
         </UserNameContext.Provider>

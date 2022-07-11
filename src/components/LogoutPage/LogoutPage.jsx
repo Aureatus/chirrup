@@ -11,7 +11,7 @@ import { Container } from "./StyledComponents";
 
 import TwitterLogo from "./TwitterLogo";
 
-const LogoutPage = ({ setLogoutClicked }) => {
+const LogoutPage = ({ setLogoutClicked, pastPathname }) => {
   const logoutUser = async () => {
     try {
       await signOut(auth);
@@ -37,7 +37,7 @@ const LogoutPage = ({ setLogoutClicked }) => {
           Log out
         </LogoutButton>
         <CancelLogoutButton
-          to={"/home"}
+          to={pastPathname.current}
           onClick={() => {
             setLogoutClicked(false);
           }}

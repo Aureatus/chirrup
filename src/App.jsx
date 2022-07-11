@@ -21,20 +21,27 @@ import LoadingPage from "./components/LoadingPage/LoadingPage";
 import ApplicationPage from "./components/ApplicationPage/ApplicationPage";
 import NavSidebar from "./components/ApplicationPage/NavSidebar/NavSidebar";
 import LogoutPage from "./components/LogoutPage/LogoutPage";
+import { useRef } from "react";
 
 function App() {
   const [user, loading, error] = useAuthState(auth);
   const [userName, setUserName, userNameLoading, setUserNameLoading] =
     useFetchUserName(user, loading, error);
   const [logoutClicked, setLogoutClicked] = useState(false);
-  const [pastPathname, setPastPathname] = useState(null);
+  const pastPathname = useRef(null);
   const [theme, setTheme] = useState("light");
 
   const navigate = useNav();
   const location = useLocation();
 
   useEffect(() => {
-    setPastPathname(location.pathname);
+    console.log(pastPathname.current);
+    if (location.pathname !== "/logout" && pastPathname.current === "/logout")
+      setLogoutClicked(false);
+    if (location.pathname === pastPathname.current) return;
+    if (location.pathname === "/loading") return;
+
+    pastPathname.current = location.pathname;
   }, [location.pathname]);
 
   useEffect(() => {
@@ -97,7 +104,12 @@ function App() {
             <Routes>
               <Route
                 path="/logout"
-                element={<LogoutPage setLogoutClicked={setLogoutClicked} />}
+                element={
+                  <LogoutPage
+                    setLogoutClicked={setLogoutClicked}
+                    pastPathname={pastPathname}
+                  />
+                }
               />
             </Routes>
           </ThemeProvider>

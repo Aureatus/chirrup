@@ -44,6 +44,16 @@ function App() {
   }, [location.pathname]);
 
   useEffect(() => {
+    if (
+      (user && pastPathname.current === "/login") ||
+      pastPathname.current === "/sign-in" ||
+      pastPathname.current === "/choose-user-name"
+    ) {
+      localStorage.setItem("path", "/home");
+    }
+  }, [user]);
+
+  useEffect(() => {
     if (location.pathname === "/logout" && !logoutClicked)
       setLogoutClicked(true);
     if (pastPathname === "/logout" && location.pathname !== "/logout")

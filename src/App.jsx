@@ -35,7 +35,6 @@ function App() {
   const location = useLocation();
 
   useEffect(() => {
-    console.log(pastPathname.current);
     if (location.pathname !== "/logout" && pastPathname.current === "/logout")
       setLogoutClicked(false);
     if (location.pathname === pastPathname.current) return;

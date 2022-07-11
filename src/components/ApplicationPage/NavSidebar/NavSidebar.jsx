@@ -14,12 +14,15 @@ import UserSection from "./UserSection";
 import LogOutSection from "./LogOutSection";
 import { useState } from "react";
 
-const NavSidebar = () => {
+const NavSidebar = ({ setLogoutClicked }) => {
   const [userSectionClicked, setUserSectionClicked] = useState(false);
 
   const bottomSectionChildren = userSectionClicked ? (
     <>
-      <LogOutSection setUserSectionClicked={setUserSectionClicked} />
+      <LogOutSection
+        setUserSectionClicked={setUserSectionClicked}
+        setLogoutClicked={setLogoutClicked}
+      />
       <UserSection setUserSectionClicked={setUserSectionClicked} />
     </>
   ) : (

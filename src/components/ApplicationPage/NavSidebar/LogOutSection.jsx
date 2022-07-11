@@ -14,7 +14,7 @@ const LogOutButton = styled(Button)`
   z-index: 1;
 `;
 
-const LogOutSection = ({ setUserSectionClicked }) => {
+const LogOutSection = ({ setUserSectionClicked, setLogoutClicked }) => {
   const userName = useContext(UserNameContext).userName;
 
   return (
@@ -32,7 +32,18 @@ const LogOutSection = ({ setUserSectionClicked }) => {
           setUserSectionClicked(false);
         }}
       ></div>
-      <LogOutButton to={"/logout"}>Log out @{userName}</LogOutButton>
+      <LogOutButton
+        to={"/logout"}
+        onClick={async () => {
+          try {
+            setLogoutClicked(true);
+          } catch (err) {
+            console.log(err);
+          }
+        }}
+      >
+        Log out @{userName}
+      </LogOutButton>
     </LogOutContainer>
   );
 };

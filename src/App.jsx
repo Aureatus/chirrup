@@ -133,15 +133,9 @@ function App() {
               <Route index element={<Navigate to={"/login"} />} />
               <Route path="/loading" element={<LoadingPage />} />
               <Route path="/login" element={<LoginPage />} />
-              <Route
-                path="/sign-in"
-                element={<SignInPage setUserName={setUserName} />}
-              />
+              <Route path="/sign-in" element={<SignInPage />} />
               <Route path="/sign-up" element={<SignUpPage />} />
-              <Route
-                path="/choose-user-name"
-                element={<ChooseUserName setUserName={setUserName} />}
-              />
+              <Route path="/choose-user-name" element={<ChooseUserName />} />
             </Routes>
           </ThemeProvider>
         </UserNameContext.Provider>

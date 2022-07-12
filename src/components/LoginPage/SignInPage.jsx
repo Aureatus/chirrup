@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 
 import { auth, provider } from "../../firebaseFunctions/firebaseAuth";
 

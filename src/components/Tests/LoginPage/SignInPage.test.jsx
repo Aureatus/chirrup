@@ -58,8 +58,6 @@ describe("Signing in functions correctly", () => {
 
     expect(signInWithPopup).toBeCalledWith({ currentUser: true }, undefined);
     expect(fetchUserName).toBeCalledWith(10);
-    expect(setUserName).toBeCalledWith("testUserName");
-    expect(history.location.pathname).toEqual("/");
   });
 
   test("Sign in with email", async () => {

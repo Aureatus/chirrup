@@ -103,7 +103,7 @@ function App() {
   if (logoutClicked) {
     return (
       <UserContext.Provider value={{ user }}>
-        <UserNameContext.Provider value={{ userName, setUserName }}>
+        <UserNameContext.Provider value={{ userName }}>
           <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
             <GlobalStyles />
             <Routes>

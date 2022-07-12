@@ -69,10 +69,6 @@ function App() {
   }, [location]);
 
   useEffect(() => {
-    if (user === null) setUserName(null);
-  }, [user, setUserName]);
-
-  useEffect(() => {
     if (loading) navigate("/loading");
   }, [loading, navigate]);
 

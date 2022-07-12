@@ -23,12 +23,9 @@ import {
 
 import { useNavigate } from "react-router-dom";
 
-import { UserNameContext } from "../../contexts/UserNameContext";
 import { useRef } from "react";
 
 const SignInPage = () => {
-  const { setUserName } = useContext(UserNameContext);
-
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -126,9 +123,7 @@ const SignInPage = () => {
                   password
                 );
                 const user = result.user;
-                const userName = await fetchUserName(user.uid);
-                setUserName(userName);
-                navigate("/");
+                await fetchUserName(user.uid);
               } catch (error) {
                 if (error.code === "auth/user-not-found") {
                   setErrorMessage(error.message);

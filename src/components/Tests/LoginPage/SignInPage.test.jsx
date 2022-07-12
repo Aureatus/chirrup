@@ -100,8 +100,6 @@ describe("Signing in functions correctly", () => {
       "testPassword"
     );
     expect(fetchUserName).toBeCalledWith(10);
-    expect(setUserName).toBeCalledWith("testUserName");
-    expect(history.location.pathname).toEqual("/");
   });
 });
 

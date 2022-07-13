@@ -19,6 +19,11 @@ const UserSection = ({ setUserSectionClicked }) => {
   const user = useContext(UserContext).user;
   const userName = useContext(UserNameContext).userName;
 
+  const getProfilePicture = (user) => {
+    const profilePicture = user.photoURL;
+    if (profilePicture) return profilePicture;
+  };
+
   return (
     <UserSectionButton
       onClick={() => {
@@ -26,14 +31,7 @@ const UserSection = ({ setUserSectionClicked }) => {
       }}
     >
       <LeftSection>
-        <ProfileImg
-          src={
-            user.photoURL
-              ? user.photoURL
-              : "https://abs.twimg.com/sticky/default_profile_images/default_profile_normal.png"
-          }
-          alt="User Profile"
-        />
+        <ProfileImg src={getProfilePicture(user)} alt="User Profile" />
         <UserNameAndTag>
           <UserName>{user.displayName}</UserName>
           <UserTag>@{userName}</UserTag>

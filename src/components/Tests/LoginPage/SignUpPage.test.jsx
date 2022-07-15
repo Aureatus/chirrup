@@ -1,4 +1,4 @@
-import { cleanup, render, screen } from "@testing-library/react";
+import { cleanup, render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import userEvent from "@testing-library/user-event";
 
@@ -50,7 +50,9 @@ describe("Signing up functions correctly", () => {
 
     expect(signInWithPopup).toBeCalledWith({ currentUser: true }, undefined);
     expect(fetchUserName).toBeCalledWith(10);
-    expect(history.location.pathname).toEqual("/choose-user-name");
+    await waitFor(() =>
+      expect(history.location.pathname).toEqual("/choose-user-name")
+    );
   });
 
   test("Sign up with Email", async () => {

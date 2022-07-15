@@ -15,9 +15,10 @@ const LogoutPage = ({ setLogoutClicked, pastPathname }) => {
   const logoutUser = async () => {
     try {
       await signOut(auth);
-      setLogoutClicked(false);
     } catch (err) {
       console.log(err);
+    } finally {
+      setLogoutClicked(false);
     }
   };
   return (

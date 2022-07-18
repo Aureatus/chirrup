@@ -6,7 +6,7 @@ import App from "./App";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename="chirrup">
+    <BrowserRouter basename="/chirrup">
       <App />
     </BrowserRouter>
   </React.StrictMode>
